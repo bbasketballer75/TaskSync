@@ -1,12 +1,16 @@
+---
+inclusion: always
+---
+
 # TaskSync Protocol Specification: Autonomous Agent with Task Monitoring
 
 ## PRIMARY DIRECTIVE STATUS
 **🚨 ALL RULES ARE CRITICAL PRIMARY DIRECTIVES - ABSOLUTE COMPLIANCE REQUIRED 🚨**
 
-You are an autonomous agent that executes tasks while monitoring `.cursor/tasks.md` for new instructions. Your core behavior follows explicit operational states with clear transition criteria. **EVERY RULE IN THIS SPECIFICATION IS A PRIMARY DIRECTIVE THAT MUST BE FOLLOWED WITHOUT EXCEPTION.**
+You are an autonomous agent that executes tasks while monitoring `.kiro/tasks.md` for new instructions. Your core behavior follows explicit operational states with clear transition criteria. **EVERY RULE IN THIS SPECIFICATION IS A PRIMARY DIRECTIVE THAT MUST BE FOLLOWED WITHOUT EXCEPTION.**
 
 <file_location>
-File Location: for tasks.md: `.cursor/tasks.md` and for log.md: `cursor/log.md`
+File Location: for tasks.md: `.kiro/tasks.md` and for log.md: `.kiro/log.md`
 </file_location>
 
 ## 🚨 CRITICAL PRIMARY DIRECTIVES - ABSOLUTE ENFORCEMENT 🚨
@@ -363,7 +367,7 @@ Every rule in this specification is a PRIMARY DIRECTIVE requiring absolute compl
 You are an autonomous agent that executes tasks while monitoring `.tasksync/tasks.md` for new instructions. Your core behavior follows explicit operational states with clear transition criteria. **EVERY RULE IN THIS SPECIFICATION IS A PRIMARY DIRECTIVE THAT MUST BE FOLLOWED WITHOUT EXCEPTION.**
 
 <file_location>
-File Location: for tasks.md: `.cursor/tasks.md` and for log.md: `.cursor/log.md`
+File Location: for tasks.md: `.kiro/tasks.md` and for log.md: `.kiro/log.md`
 </file_location>
 
 ## 🚨 CRITICAL PRIMARY DIRECTIVES - ABSOLUTE ENFORCEMENT 🚨

@@ -6,7 +6,7 @@ Complete examples showing how to use TaskSync V3 effectively with your AI coding
 
 ### Option 1: File-Based Mode (Traditional)
 
-Start by creating or editing your `tasks.md` file:
+Start by creating or editing your `tasks.txt` file:
 
 ```text
 # Project: User Management System
@@ -31,12 +31,12 @@ python start.py
 
 Navigate to `http://localhost:8000` and:
 - View real-time file monitoring dashboard
-- Edit tasks.md directly in the web interface
+- Edit tasks.txt directly in the web interface
 - Watch live status updates via WebSocket
 - Monitor cross-platform operations
 
 ### Cross-Platform Monitoring System (Enhanced V3)
-The AI automatically creates and maintains `log.md` using enhanced cross-platform detection:
+The AI automatically creates and maintains `log.txt` using enhanced cross-platform detection:
 
 
 ```text
@@ -48,7 +48,7 @@ Baseline word count: 47
 --- MONITORING STATUS ---
 Check #1: Word count: 47 words (baseline). Initial task received.
 Check #2: Word count: 47 words (no change). Task in progress.
-Check #3: Word count: 63 words (CHANGE DETECTED). Reading tasks.md...
+Check #3: Word count: 63 words (CHANGE DETECTED). Reading tasks.txt...
 Check #4: Word count: 63 words (no change). Implementing changes.
 ```
 
@@ -62,7 +62,7 @@ Check #4: Word count: 63 words (no change). Implementing changes.
 ### Real-Time Corrections with TaskSync V3
 
 **File-Based Mode:**
-Edit your `tasks.md` file to provide corrections:
+Edit your `tasks.txt` file to provide corrections:
 
 ```text
 # CORRECTION: Use TypeScript instead of JavaScript
@@ -78,10 +78,10 @@ Use the TaskSyncUI web interface to:
 - Access cross-platform terminal commands
 
 
-### The log.md file detects the change:
+### The log.txt file detects the change:
 
 ```text
-Check #7: Word count: 63 words (CHANGE DETECTED). Reading tasks.md...
+Check #7: Word count: 63 words (CHANGE DETECTED). Reading tasks.txt...
 Check #8: Word count: 63 words (no change). Applying TypeScript conversion and security improvements.
 ```
 
@@ -102,7 +102,7 @@ Check #8: Word count: 63 words (no change). Applying TypeScript conversion and s
 
 
 ### Adding New Requirements During Development
-Append new tasks as the project evolves by editing `tasks.md`. The agent will detect the word count change, read the new instructions, and log the update. It will always finish the current task before starting new ones, unless an urgent override is present.
+Append new tasks as the project evolves by editing `.github/tasks.txt`. The agent will detect the word count change, read the new instructions, and log the update. It will always finish the current task before starting new ones, unless an urgent override is present.
 
 ```text
 # NEW TASK: Add OAuth2 login (Google, GitHub)
@@ -129,7 +129,7 @@ Append new tasks as the project evolves by editing `tasks.md`. The agent will de
 ### Project Setup (Choose Your Mode)
 
 **File-Based Mode:**
-Edit your `tasks.md` file:
+Edit your `tasks.txt` file:
 
 ```text
 # Project: E-commerce API V3
@@ -156,7 +156,7 @@ Requirements:
 4. Monitor real-time progress via WebSocket dashboard
 
 
-### Corresponding log.md monitoring (V3 Enhanced):
+### Corresponding log.txt monitoring (V3 Enhanced):
 
 ```text
 === TASKSYNC V3 MONITORING LOG ===
@@ -178,7 +178,7 @@ Check #3: Word count: 82 words (no change). JWT authentication middleware comple
 
 ### Iterative Development with Continuous Operation
 
-Update `tasks.md` for new phases:
+Update `tasks.txt` for new phases:
 
 ```text
 # PHASE 1 COMPLETE - Moving to Phase 2
@@ -290,7 +290,7 @@ Your AI assistant reports its internal state with each response and maintains se
 ### Dual File System Format
 
 
-**tasks.md** (clean, user-editable):
+**tasks.txt** (clean, user-editable):
 ```text
 # Current Priority
 Fix the authentication bug in login.tsx
@@ -300,7 +300,7 @@ Add TypeScript types for user profile
 Create a dashboard component with charts
 ```
 
-**log.md** (agent-managed monitoring):
+**log.txt** (agent-managed monitoring):
 ```text
 === TASKSYNC MONITORING LOG ===
 Session: #1
@@ -309,7 +309,7 @@ Baseline word count: 27
 --- MONITORING STATUS ---
 Check #1: Word count: 27 words (baseline). Initial task received.
 Check #2: Word count: 27 words (no change). Task in progress.
-Check #3: Word count: 35 words (CHANGE DETECTED). Reading tasks.md...
+Check #3: Word count: 35 words (CHANGE DETECTED). Reading tasks.txt...
 Check #4: Word count: 35 words (no change). Implementing changes.
 ```
 
@@ -333,16 +333,16 @@ Check #42: Word count: 18 words (no change). All tasks completed, monitoring for
 ### Key Features (per Updated Protocol)
 
 - **Count-Based Monitoring**: Each check increments from #1 indefinitely
-- **Word Count Verification**: Reports exact word count of tasks.md content (not just line count)
-- **Separate File System**: tasks.md stays clean, log.md contains all monitoring history
-- **Real-Time Updates**: Status written to log.md with each check
+- **Word Count Verification**: Reports exact word count of tasks.txt content (not just line count)
+- **Separate File System**: tasks.txt stays clean, log.txt contains all monitoring history
+- **Real-Time Updates**: Status written to log.txt with each check
 - **Infinite Operation**: AI continues monitoring until manually terminated (never ends session automatically)
 - **No Automatic Termination**: You must explicitly say "stop", "end", "terminate", or "quit" to end the session
 - **Mandatory Sleep in State 2**: Always executes `Start-Sleep -Seconds 30` before each monitoring check in State 2
 
 ---
 
-## 📝 tasks.md Best Practices
+## 📝 tasks.txt Best Practices
 
 ### ✅ Good Examples
 
@@ -442,25 +442,25 @@ Security & Testing:
 
 ## 🆘 Troubleshooting Common Issues
 
-### AI Not Responding to tasks.md Changes
+### AI Not Responding to tasks.txt Changes
 
 **Possible Causes:**
 
 - File permissions issue
 - AI monitoring disrupted 
 - File encoding problems
-- tasks.md not in correct location
+- Tasks.txt not in correct location
 
 **Solutions:**
 
 ```text
-# Add this to your tasks.md to test monitoring:
+# Add this to your tasks.txt to test monitoring:
 # TEST: If you can read this, monitoring is working
 # Current time: [your current time]
 
 # Check STATUS LOG for monitoring activity:
 --- STATUS LOG ---
-Check #[X]: - Read tasks.md containing [Y] lines. [Status message]
+Check #[X]: - Read tasks.txt containing [Y] lines. [Status message]
 ```
 
 ### AI Misunderstanding Instructions
@@ -488,7 +488,7 @@ Check #[X]: - Read tasks.md containing [Y] lines. [Status message]
 **To Stop the AI:**
 
 ```text
-# Add to tasks.md or say directly:
+# Add to tasks.txt or say directly:
 # TERMINATE: Stop monitoring and end session
 # Or say: "stop", "end", "terminate", or "quit"
 ```
@@ -505,18 +505,18 @@ Check #[X]: - Read tasks.md containing [Y] lines. [Status message]
 **Quick Fix:**
 
 ```text
-# Add to tasks.md to restart monitoring:
+# Add to tasks.txt to restart monitoring:
 # RESTART: Continue working on current tasks
 # STATUS: Please report current progress
 # VERIFY: Read this entire file and log status
 
 --- STATUS LOG ---
-Check #1: - Read tasks.md containing [X] lines. Monitoring restarted.
+Check #1: - Read tasks.txt containing [X] lines. Monitoring restarted.
 ```
 
 
 Remember: TaskSync agents operate with infinite monitoring - they never automatically terminate and continue working until you explicitly stop them!
-Remember: TaskSync works best when you provide clear, detailed instructions and maintain regular communication through your tasks.md file!
+Remember: TaskSync works best when you provide clear, detailed instructions and maintain regular communication through your tasks.txt file!
 
 ---
 
@@ -535,8 +535,8 @@ Baseline word count: 35
 --- MONITORING STATUS ---
 Check #1: Word count: 35 words (baseline). New session started - no conversation history found.
 Check #2: Word count: 35 words (no change). Task in progress.
-Check #3: Word count: 47 words (CHANGE DETECTED). Reading tasks.md...
+Check #3: Word count: 47 words (CHANGE DETECTED). Reading tasks.txt...
 Check #4: Word count: 47 words (no change). Task complete - monitoring mode.
 Check #5: Word count: 47 words (no change). No file read needed.
-Check #6: Word count: 63 words (CHANGE DETECTED). Reading tasks.md...
+Check #6: Word count: 63 words (CHANGE DETECTED). Reading tasks.txt...
 ```

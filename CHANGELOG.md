@@ -4,20 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## Version 3.0 (07-23-25)
 - TaskSync Monitor UI: Web-based interface with real-time monitoring
-- Improved TaskSync protocol prompts for better agent persistence and reliability
-- Cross-platform terminal command support and Kiro IDE integration
+- Improved TaskSync protocol prompt for better agent persistence and reliability and better file reference handling.
+- Added Kiro IDE steerings file
 
 ## Version 2.0 (07-15-25)
 - PowerShell word count monitoring system for efficient file change detection
 - Protocol standardization: identical files, IDE-specific paths, and template system
 - Fixed timing (180s/30s), mandatory Start-Sleep for monitoring, and never end session enforcement
-- Multi-session log support: auto session creation, session numbering, and clear separation in log.md
+- Multi-session log support: auto session creation, session numbering, and clear separation in log.txt
 - Enhanced enforcement: session termination prevention, urgent override detection, and task continuation priority
 - Improved documentation: configuration, usage, protocol, and changelog updates
 
 ## Version 1.0 (07-14-25)
 - Initial release with infinite monitoring and basic file/task execution
-- Dual file system: separate tasks.md for instructions and log.md for monitoring history
+- Dual file system: separate tasks.txt for instructions and log.txt for monitoring history
 - Status logging: count-based monitoring, structured log format, and session tracking
 - Manual termination only: agent never ends session automatically, explicit keywords required
 - Robust error handling, improved user experience, and comprehensive documentation

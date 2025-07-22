@@ -1,151 +1,150 @@
-# TaskSync V2 
+# 🚀 TaskSync V3
 **Save premium requests on your AI coding IDEs**. This simple prompt instructions helps your agent work more efficiently, reduce premium request usage, and allow you to give the agent new instructions while it's currently working or after completing a task.
 
 ## What This Does
-TaskSync is an **autonomous agent protocol** that creates persistent agents. Instead of typing lots of messages back and forth, you write tasks in a tasks.txt file. Your AI agent continuously monitors this file using PowerShell word count checks, executes tasks autonomously, and maintains persistent operation until manually terminated.
-
-## How TaskSync Helps
-**Add new task in one request** - You can provide new instructions to the agent without sending a new chat message by simply adding tasks to the tasks.txt file.
-
-**Task continuation priority** - completes current tasks before processing new instructions (unless urgent override detected)
-
-**Dual file system** - uses `tasks.txt` for instructions and separate `log.txt` for status tracking
-
-**Real-time status logging** - it writes progress monitoring into dedicated log.txt 
-
-**Never terminates automatically** - maintains persistent operation until you explicitly stop it
-
-**Self-correcting behavior** - when AI makes mistakes, it reads your corrections and fixes its mistakes
-
-**Works with any AI IDEs** - GitHub Copilot, Cursor, Windsurf, Trae IDE, and more  
-
-## How It Works
+TaskSync is an **autonomous agent protocol** that creates persistent agents. Instead of typing lots of messages back and forth, you write tasks in a tasks.md file. Your AI agent continuously monitors this file using Terminal word count checks, executes tasks autonomously, and maintains persistent operation until manually terminated.
 
 https://github.com/user-attachments/assets/a4737779-b877-4e12-8990-1a70a7b09dcc
 
-1. **Drag the tasksync instructions** to chat and ask the agent to strictly follow the tasksync.md.
-2. **Add tasks in your `tasks.txt` file**
-3. **Write Tasks** - it checks `tasks.txt` for updates automatically using PowerShell word count
-4. **Change `tasks.txt` anytime** to follow next instructions or make it fix its mistakes.
-**ENJOY Getting better results with way fewer premium requests!**
-
+## How TaskSync Helps
+- **Add new task in one request** - You can provide new instructions to the agent without sending a new chat message by simply adding tasks to the tasks.md file.
+- **Task continuation priority** - completes current tasks before processing new instructions (unless urgent override detected)
+- **Dual file system** - uses `tasks.md` for instructions and separate `log.md` for status tracking
+- **Real-time status logging** - it writes progress monitoring into dedicated log.md
+- **Never terminates automatically** - maintains persistent operation until you explicitly stop it
+- **Self-correcting behavior** - when AI makes mistakes, it reads your corrections and fixes its mistakes
+**Works with any AI IDEs** - Kiro, Copilot, Cursor, Windsurf, Trae IDE, and more  
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-**Click install or copy-paste the installation commands for other IDEs:**
+### Option 1: File Mode 
 
----
+The simplest way to use TaskSync is through files and your existing AI IDE:
 
-### 🎯 GitHub Copilot (VS Code)
+**🎯 VS Code Copilot**
 
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2F4regab%2FTaskSync%2Fmain%2F.github%2Finstructions%2Ftasksync.instructions.md) [![Install in VS Code](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2F4regab%2FTaskSync%2Fmain%2F.github%2Finstructions%2Ftasksync.instructions.md)
+
 ```bash
 git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
 cd TaskSync
 git sparse-checkout set .github
 ```
-If you use one click install you must:
-Create tasks.txt and log.txt inside the folder. Add your tasks in tasks.txt.
+*Note: If you use one-click install, create `tasks.md` and `log.md` files in your workspace.*
 
-**For optimal results with Copilot**, enable "Auto Approve" and set "Max Requests" to 100 in your settings. This allows the agent to execute commands and handle long tasks without interruption. Adjust these settings via the UI or your user settings JSON file:
-```text
-"chat.tools.autoApprove": true,
-"chat.agent.maxRequests": 100
-```
----
-
-### 🎯 Cursor IDE
+**🎯 Cursor**
 
 ```bash
 git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
 cd TaskSync
 git sparse-checkout set .cursor
 ```
----
 
-### 🎯 Global (Any IDE)
+**🎯 Kiro**
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
+cd TaskSync
+git sparse-checkout set .kiro
+```
+
+**🎯 Any IDE (Global)**
 
 ```bash
 git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
 cd TaskSync
 git sparse-checkout set .global
 ```
----
-### 🎯 IDE-Specific Documentation
-- **[GitHub Copilot (VS Code)](.github/)** - `.github/instructions/` setup for maximum premium usage
-- **[Cursor IDE](.cursor/)** - Modern `.cursor/rules/*.mdc` setup
-- **[Global](.global/)** - `global_rules.md` for any IDE
 
----
-### TaskSync Protocol Features
+### Option 2: TaskSync UI
 
-- **Infinite Monitoring**: AI never terminates automatically - operates continuously until manually stopped
-- **PowerShell Word Count Monitoring**: Efficient `Get-Content .global\tasks.txt | Measure-Object -Word` checks
-- **Task Continuation Priority**: Complete current tasks before processing new instructions (unless urgent override)
-- **Dual File System**: AI uses `tasks.txt` for instructions and separate `log.txt` for status tracking
-- **Status Logging**: AI writes check counts directly into dedicated log.txt file with each monitoring cycle
-- **Count-Based Monitoring**: Systematic counting from Check #1 incrementing indefinitely
-- **Urgent Override Detection**: Keywords like "stop current task", "correction", "fix" interrupt current work
-- **Complete File Reading**: Always reads entire files (minimum 1000 lines) for comprehensive analysis
-- **Real-Time Communication**: Edit `tasks.txt` anytime to communicate with AI during execution
-- **Autonomous Execution**: Independent task completion with persistent operation
-- **State Management**: Active → Monitoring → Manual Termination Only
+For users who prefer a visual interface with real-time monitoring:
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
+cd TaskSync
+git sparse-checkout set TaskSyncUI
+cd TaskSyncUI
+python3 start.py
+```
+
+This automatically sets up the environment and opens a web interface at http://localhost:8000.
 
 ---
 
-## ⚙️ Configuration & Timing
+## ✨ Key Features
 
-### Monitoring Intervals
+* **Infinite Monitoring**: AI never terminates automatically - operates continuously until manually stopped
+* **Task Continuation Priority**: Completes current tasks before processing new instructions
+* **Dual File System**: Uses `tasks.md` for instructions and `log.md` for status tracking  
+* **Urgent Override Detection**: Keywords like "STOP CURRENT TASK", "CORRECTION" interrupt current work
+* **Cross-Platform**: Windows, macOS, Linux compatibility
+* **Optional Web Interface**: Modern dashboard with real-time monitoring for visual users
 
-**State 1 (Active Task Execution):**
-- **Interval**: 180 seconds (180000ms) fixed
-- **Command**: `Get-Content [tasks.txt] | Measure-Object -Word`
-- **Purpose**: Monitor for new instructions while working on current tasks
-
-**State 2 (Monitoring Mode):**
-- **Interval**: 30 seconds (30000ms) fixed  
-- **Command**: `Start-Sleep -Seconds 30; Get-Content [tasks.txt] | Measure-Object -Word`
-- **Purpose**: Rapid response after task completion
-
-### Performance Recommendations
-
-- **180 seconds (3 minutes)**: Balanced performance without overwhelming the AI
-- **30 seconds**: Quick response for new tasks after completion
-- **Shorter intervals**: More responsive but may impact AI performance
-- **Longer intervals**: Better performance but slower response to changes
 ---
 
-## 🔧 Usage Examples
+## 🛠️ Usage Examples
 
-**Real-time task communication with separate log file - edit `tasks.txt` anytime:**
+### File Mode
 
-## 🔧 Example content of tasks.txt`
+Simply edit your `tasks.md` file:
 
-```text
-# Current Priority
+```markdown
+# Task
 Fix the authentication bug in login.tsx
 Add TypeScript types for user profile
 
-# New Feature Request  
-Create a dashboard component with charts
-
-# Quick Corrections
-The button color should be blue, not red
-Use const instead of let in the helper functions
 ```
+
+The AI agent automatically detects changes and executes tasks.
+
+### Web Interface Mode
+
+1. **Launch**: `python3 start.py` → Opens http://localhost:8000
+2. **Submit Tasks**: Use categories (Task, Development, Bug Fix, Process)
+3. **File References**: Click 📎 to browse and reference files for context
+4. **Monitor Progress**: Watch real-time log updates as the agent works
+
 ---
 
-## 🤝 Contributing
+## 🧩 How It Works
+TaskSync uses terminal-based word count monitoring to efficiently detect file changes for new instructions while working:
 
-Feel free to submit PR! See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for development setup, coding standards, and submission guidelines.
+**Active Task Execution:**
+- **Interval**: 180 seconds
+- **Command**: `wc -w [tasks.md]` (Linux/macOS) or `Get-Content [tasks.md] | Measure-Object -Word` (Windows)
 
-## 📚 Documentation
+**Monitoring Mode:**  
+- **Interval**: 30 seconds
+- **Command**: `sleep 30; wc -w [tasks.md]` (Linux/macOS) or `Start-Sleep -Seconds 30; Get-Content [tasks.md] | Measure-Object -Word` (Windows)
 
-- [Complete Protocol](docs/PROTOCOL.md)
-- [Usage Examples](docs/EXAMPLES.md)  
-- [Implementation Guide](docs/USAGE.md)
-- [Contributing Guidelines](docs/CONTRIBUTING.md)
+
+---
+
+## 🎉 What's New in V3
+
+- **🎨 TaskSync UI**: Modern web interface for users who prefer visual interface
+- **🔄 Enhanced Protocol**: Improved TaskSync Instructions for better persistence and enhanced file reference handling
+- **🔧 Better Cross-Platform Support**: Windows, macOS, Linux compatibility
+- **📝 File Path**: File reference for more context for agent
+---
+
+## 📦 Previous Versions
+
+If you prefer older versions of TaskSync, you can access them directly:
+
+**TaskSync V1 (Original)**
+- [V1 Protocol](https://github.com/4regab/TaskSync/blob/ac778f1c417f1239e38c15ca195862094a37bf76/.global/tasksync.md)
+- Simple autonomous agent protocol with basic monitoring
+
+**TaskSync V2 (Enhanced)**  
+- [V2 Protocol](https://github.com/4regab/TaskSync/blob/c6a9561b747eefaf6bfcf7a8a0a12dc07d549691/.global/tasksync.md)
+- PowerShell monitoring system with enhanced session management
+
+To use a previous version, simply download the specific tasksync.md file and follow the instructions within it.
+
+---
 
 ## 📊 Star History
 
