@@ -84,7 +84,9 @@ This automatically sets up the environment and opens a web interface at http://l
 
 ---
 
-## 🛠️ Usage Examples
+## 🛠️ Usage Demo
+
+Tell the AI to "Strictly follow Tasksync.md"
 
 ### File Mode
 
