@@ -85,7 +85,7 @@ This automatically sets up the environment and opens a web interface at http://l
 
 Tell the agent to 
 ```markdown
-Strictly adhere to TaskSync Protocol #tasksync.md"
+Strictly adhere to TaskSync Protocol #tasksync.md
 ```
 Note: tasksync.md prompt file must be attached.
 
