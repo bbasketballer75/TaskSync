@@ -83,21 +83,19 @@ This automatically sets up the environment and opens a web interface at http://l
 
 ## 🛠️ How to Use
 
-Tell the AI to "Strictly adhere to TaskSync Protocol #tasksync.md"
-tasksync.md file must be attached.
+Tell the AI to 
+```markdown
+Strictly adhere to TaskSync Protocol #tasksync.md"
+```
+Note: tasksync.md prompt file must be attached.
 
 ### File Mode
 
 Simply edit your `tasks.md` file e.g.: 
 
-```markdown
 # Task
 Fix the authentication bug in login.tsx
 Add TypeScript types for user profile
-
-```
-
-The agent automatically detects changes and executes tasks.
 
 ### Web Interface Mode
 
@@ -106,6 +104,7 @@ The agent automatically detects changes and executes tasks.
 3. **File References**: Click 📎 to browse and reference files for context (optional)
 4. **Monitor Progress**: Watch real-time log updates as the agent works
 
+**The agent automatically detects changes and executes tasks**
 ---
 
 ## ✨ Key Features
