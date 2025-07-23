@@ -53,21 +53,19 @@ class AppState:
         self.check_count: int = 0
         self.baseline_word_count: int = 0
         # Use absolute path to ensure file monitoring works correctly
-        # Changed to parent.parent.parent to show files in /media/fourgab/SDD/tasskync/ instead of just TaskSyncV3/
-        self.workspace_path: Path = Path(__file__).parent.parent.parent.absolute()
-        # Keep .tasksync files in TaskSyncV3 directory for functionality
-        self.tasksync_path: Path = Path(__file__).parent.parent.absolute()
-        self.tasks_file: Path = self.tasksync_path / ".tasksync" / "tasks.md"
-        self.log_file: Path = self.tasksync_path / ".tasksync" / "log.md"
+        self.workspace_path = Path(__file__).parent.parent.parent.absolute()
+        # Store tasks.md and log.md in TaskSync/TaskSyncUI/tasksync/
+        self.tasksync_path = Path(__file__).parent.parent.absolute() / "tasksync"
+        self.tasks_file = self.tasksync_path / "tasks.md"
+        self.log_file = self.tasksync_path / "log.md"
         
     def ensure_files_exist(self):
-        """Ensure tasks.md and log.md exist"""
+        """Ensure tasksync directory, tasks.md and log.md exist"""
+        self.tasksync_path.mkdir(parents=True, exist_ok=True)
         self.tasks_file.parent.mkdir(parents=True, exist_ok=True)
         self.log_file.parent.mkdir(parents=True, exist_ok=True)
-        
         if not self.tasks_file.exists():
             self.tasks_file.write_text("# TaskSync Tasks\n\n")
-            
         if not self.log_file.exists():
             self.log_file.write_text("")  # Start with empty log file
 
@@ -436,8 +434,8 @@ async def startup_event():
     # Ensure files exist
     app_state.ensure_files_exist()
     
-    # Start file monitoring for .tasksync directory only
-    observer.schedule(file_handler, str(app_state.tasksync_path / ".tasksync"), recursive=False)
+    # Start file monitoring for tasksync directory only
+    observer.schedule(file_handler, str(app_state.tasksync_path), recursive=False)
     observer.start()
     
     # Initialize baseline word count
@@ -718,7 +716,7 @@ async def get_logs(limit: int = 50):
     return entries[:limit]
 
 # Serve static files (CSS, JS, and other assets directly from frontend)
-frontend_path = app_state.tasksync_path / "frontend"
+frontend_path = Path(__file__).parent.parent / "frontend"
 
 # Mount individual static files at root level for simplified structure
 @app.get("/main.css")
