@@ -15,6 +15,7 @@ class TaskSyncMonitor {
         this.selectedFiles = [];
         this.tempSelectedFiles = []; // For file browser modal
         this.allFileList = []; // For Select All functionality
+        this.expandedFolders = new Set(); // Track expanded folders
         this.init();
     }
 
@@ -853,20 +854,169 @@ class TaskSyncMonitor {
      */
     
     /**
-     * Render file tree structure - Clean version
+     * Render file tree structure - Windows Explorer style
      */
-    renderFileTree(fileTree, container = null, path = '') {
+    renderFileTree(fileTree, container = null, path = '', depth = 0) {
         if (!container) {
             container = document.getElementById('file-tree');
             container.innerHTML = '';
             this.allFileList = [];
+            this.expandedFolders = new Set(); // Track expanded folders
             this.collectAllFiles(fileTree);
         }
 
-        for (const [name, item] of Object.entries(fileTree)) {
+        // Sort entries: directories first, then files, both alphabetically
+        const sortedEntries = Object.entries(fileTree).sort(([nameA, itemA], [nameB, itemB]) => {
+            if (itemA.type === 'directory' && itemB.type === 'file') return -1;
+            if (itemA.type === 'file' && itemB.type === 'directory') return 1;
+            return nameA.localeCompare(nameB);
+        });
+
+        for (const [name, item] of sortedEntries) {
             const fullPath = path ? `${path}/${name}` : name;
-            const element = this.createFileTreeItem(name, item, fullPath);
+            const element = this.createFileTreeItem(name, item, fullPath, depth);
             container.appendChild(element);
+        }
+    }
+
+    /**
+     * Create file tree item with Windows Explorer style - FIXED SELECTION & EXPANSION
+     */
+    createFileTreeItem(name, item, fullPath, depth = 0) {
+        const div = document.createElement('div');
+        div.setAttribute('data-path', fullPath);
+        div.className = `file-tree-item ${item.type}`;
+        
+        // Calculate indentation based on depth
+        const indentationPx = depth * 20;
+        
+        if (item.type === 'directory') {
+            const hasChildren = item.children && Object.keys(item.children).length > 0;
+            const isExpanded = this.expandedFolders.has(fullPath);
+            const expandIcon = hasChildren ? (isExpanded ? '▼' : '▶') : '·';
+            
+            div.innerHTML = `
+                <div class="file-tree-item-header" style="padding-left: ${indentationPx + 20}px; cursor: pointer; display: flex; align-items: center;">
+                    <span class="expand-icon" style="width: 16px; text-align: center; margin-right: 4px; color: #888; font-weight: bold; font-size: 12px;">${expandIcon}</span>
+                    <span class="icon" style="margin-right: 6px;">📁</span>
+                    <span class="name" style="flex: 1;">${this.escapeHtml(name)}</span>
+                    <span class="selection-checkbox" style="margin-left: 8px; width: 16px; height: 16px; border: 1px solid #666; background: transparent; display: inline-block; cursor: pointer;"></span>
+                </div>
+            `;
+            
+            // Add click handlers
+            const header = div.querySelector('.file-tree-item-header');
+            const checkbox = div.querySelector('.selection-checkbox');
+            const expandIconEl = div.querySelector('.expand-icon');
+            const nameEl = div.querySelector('.name');
+            
+            // Click on folder name or expand icon = expand/collapse
+            const expandHandler = (e) => {
+                e.stopPropagation();
+                if (hasChildren) {
+                    console.log(`🔄 Expanding ${fullPath}`);
+                    this.toggleDirectoryExpansion(div, item, fullPath, depth);
+                } else {
+                    console.log(`📁 Empty folder: ${fullPath}`);
+                }
+            };
+            
+            expandIconEl.addEventListener('click', expandHandler);
+            nameEl.addEventListener('click', expandHandler);
+            
+            // Click on checkbox = select/deselect
+            checkbox.addEventListener('click', (e) => {
+                e.stopPropagation();
+                console.log(`☑️ Toggling selection: ${fullPath}`);
+                this.toggleSelection(fullPath, div, item);
+                this.updateCheckboxVisual(checkbox, this.tempSelectedFiles.includes(fullPath));
+            });
+            
+            // If expanded, render children immediately
+            if (hasChildren && isExpanded) {
+                const childrenContainer = document.createElement('div');
+                childrenContainer.className = 'file-tree-children';
+                this.renderFileTree(item.children, childrenContainer, fullPath, depth + 1);
+                div.appendChild(childrenContainer);
+            }
+            
+        } else {
+            // File item
+            div.innerHTML = `
+                <div class="file-tree-item-header" style="padding-left: ${indentationPx + 40}px; cursor: pointer; display: flex; align-items: center;">
+                    <span class="icon" style="margin-right: 6px;">📄</span>
+                    <span class="name" style="flex: 1;">${this.escapeHtml(name)}</span>
+                    <span class="size" style="color: #666; font-size: 11px; margin-right: 8px;">${this.formatFileSize(item.size)}</span>
+                    <span class="selection-checkbox" style="width: 16px; height: 16px; border: 1px solid #666; background: transparent; display: inline-block; cursor: pointer;"></span>
+                </div>
+            `;
+            
+            const header = div.querySelector('.file-tree-item-header');
+            const checkbox = div.querySelector('.selection-checkbox');
+            
+            // File selection
+            header.addEventListener('click', (e) => {
+                e.stopPropagation();
+                console.log(`📄 Selecting file: ${fullPath}`);
+                this.toggleSelection(fullPath, div);
+                this.updateCheckboxVisual(checkbox, this.tempSelectedFiles.includes(fullPath));
+            });
+        }
+        
+        return div;
+    }
+
+    /**
+     * Update checkbox visual state
+     */
+    updateCheckboxVisual(checkbox, isSelected) {
+        if (isSelected) {
+            checkbox.style.background = '#007acc';
+            checkbox.style.color = 'white';
+            checkbox.innerHTML = '✓';
+            checkbox.style.textAlign = 'center';
+            checkbox.style.fontSize = '11px';
+            checkbox.style.lineHeight = '14px';
+        } else {
+            checkbox.style.background = 'transparent';
+            checkbox.innerHTML = '';
+        }
+    }
+
+    /**
+     * Toggle directory expansion with proper re-rendering - ENHANCED
+     */
+    toggleDirectoryExpansion(directoryElement, item, fullPath, depth) {
+        const isExpanded = this.expandedFolders.has(fullPath);
+        const expandIcon = directoryElement.querySelector('.expand-icon');
+        
+        console.log(`🔄 Toggling ${fullPath}: currently ${isExpanded ? 'expanded' : 'collapsed'}`);
+        
+        if (isExpanded) {
+            // Collapse: remove from expanded set and remove children
+            this.expandedFolders.delete(fullPath);
+            if (expandIcon) expandIcon.textContent = '▶';
+            
+            // Remove children container if it exists
+            const childrenContainer = directoryElement.querySelector('.file-tree-children');
+            if (childrenContainer) {
+                childrenContainer.remove();
+                console.log(`📁 Collapsed ${fullPath}`);
+            }
+        } else {
+            // Expand: add to expanded set and render children
+            this.expandedFolders.add(fullPath);
+            if (expandIcon) expandIcon.textContent = '▼';
+            
+            // Create and append children container
+            if (item.children && Object.keys(item.children).length > 0) {
+                const childrenContainer = document.createElement('div');
+                childrenContainer.className = 'file-tree-children';
+                childrenContainer.style.paddingLeft = '0px'; // No extra padding, indentation handled in items
+                this.renderFileTree(item.children, childrenContainer, fullPath, depth + 1);
+                directoryElement.appendChild(childrenContainer);
+                console.log(`📂 Expanded ${fullPath} with ${Object.keys(item.children).length} children`);
+            }
         }
     }
 
@@ -885,63 +1035,26 @@ class TaskSyncMonitor {
     }
 
     /**
-     * Create clean file tree item element
-     */
-    createFileTreeItem(name, item, fullPath) {
-        const div = document.createElement('div');
-        div.setAttribute('data-path', fullPath);
-        div.className = `file-tree-item ${item.type}`;
-        
-        if (item.type === 'directory') {
-            div.innerHTML = `
-                <span class="icon">📁</span>
-                <span class="name">${this.escapeHtml(name)}</span>
-            `;
-            
-            div.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.toggleSelection(fullPath, div, item);
-            });
-            
-            if (item.children && Object.keys(item.children).length > 0) {
-                const childrenContainer = document.createElement('div');
-                childrenContainer.className = 'file-tree-children';
-                this.renderFileTree(item.children, childrenContainer, fullPath);
-                div.appendChild(childrenContainer);
-            }
-        } else {
-            div.innerHTML = `
-                <span class="icon">📄</span>
-                <span class="name">${this.escapeHtml(name)}</span>
-                <span class="size">${this.formatFileSize(item.size)}</span>
-            `;
-            
-            div.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.toggleSelection(fullPath, div);
-            });
-        }
-        
-        return div;
-    }
-
-    /**
-     * Simple toggle selection for both files and folders
+     * Simple toggle selection for both files and folders - IMPROVED
      */
     toggleSelection(path, element, item = null) {
         const index = this.tempSelectedFiles.indexOf(path);
         
         if (index === -1) {
+            // Add to selection
             this.tempSelectedFiles.push(path);
             element.classList.add('selected');
+            console.log(`✅ Selected: ${path}`);
             
             // If it's a directory, add all its children
             if (item && item.type === 'directory' && item.children) {
                 this.addDirectoryChildren(item.children, path);
             }
         } else {
+            // Remove from selection
             this.tempSelectedFiles.splice(index, 1);
             element.classList.remove('selected');
+            console.log(`❌ Deselected: ${path}`);
             
             // If it's a directory, remove all its children
             if (item && item.type === 'directory' && item.children) {
@@ -949,8 +1062,24 @@ class TaskSyncMonitor {
             }
         }
         
+        // Update all checkbox visuals
+        this.updateAllCheckboxes();
         this.updateSelectedFilesPreview();
         this.updateSelectionCounter();
+    }
+
+    /**
+     * Update all checkbox visuals to match selection state
+     */
+    updateAllCheckboxes() {
+        document.querySelectorAll('.file-tree-item').forEach(item => {
+            const path = item.getAttribute('data-path');
+            const checkbox = item.querySelector('.selection-checkbox');
+            if (path && checkbox) {
+                const isSelected = this.tempSelectedFiles.includes(path);
+                this.updateCheckboxVisual(checkbox, isSelected);
+            }
+        });
     }
 
     /**
@@ -1140,225 +1269,100 @@ class TaskSyncMonitor {
     }
 
     /**
-     * Recursively add directory contents
+     * Start the application (called after DOM initialization)
      */
-    addDirectoryContents(children, basePath) {
-        for (const [name, child] of Object.entries(children)) {
-            const childPath = `${basePath}/${name}`;
-            
-            if (!this.tempSelectedFiles.includes(childPath)) {
-                this.tempSelectedFiles.push(childPath);
-            }
-            
-            if (child.type === 'directory' && child.children) {
-                this.addDirectoryContents(child.children, childPath);
-            }
+    start() {
+        // Application is already initialized in constructor
+        // This method exists for compatibility with the initialization call
+        console.log('🚀 TaskSync Monitor started successfully');
+    }
+    
+    /**
+     * Cleanup resources
+     */
+    cleanup() {
+        if (this.websocket) {
+            this.websocket.close();
         }
     }
-
+    
     /**
-     * Recursively remove directory contents
+     * Escape HTML to prevent XSS
      */
-    removeDirectoryContents(children, basePath) {
-        for (const [name, child] of Object.entries(children)) {
-            const childPath = `${basePath}/${name}`;
-            
-            const index = this.tempSelectedFiles.indexOf(childPath);
-            if (index !== -1) {
-                this.tempSelectedFiles.splice(index, 1);
-            }
-            
-            if (child.type === 'directory' && child.children) {
-                this.removeDirectoryContents(child.children, childPath);
-            }
-        }
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
-    /**
-     * Update selection UI for all elements
-     */
-    updateSelectionUI() {
-        document.querySelectorAll('.file-tree-item').forEach(item => {
-            const path = item.getAttribute('data-path');
-            if (path) {
-                if (this.tempSelectedFiles.includes(path)) {
-                    item.classList.add('selected');
-                } else {
-                    item.classList.remove('selected');
-                }
-            }
-        });
-    }
-
-    /**
-     * Update selected files preview
-     */
-    updateSelectedFilesPreview() {
-        const container = document.getElementById('selected-files-list');
-        if (!container) return;
-
-        if (this.tempSelectedFiles.length === 0) {
-            container.innerHTML = '<div class="no-selection">🔍 Click files and folders to select them for your task</div>';
-            return;
-        }
-
-        const html = this.tempSelectedFiles.map((filePath, index) => {
-            const isDirectory = this.isDirectoryPath(filePath);
-            const icon = isDirectory ? '📁' : '📄';
-            return `
-                <div class="selected-file-item">
-                    <span class="file-path">${icon} ${this.escapeHtml(filePath)}</span>
-                    <button class="remove-btn" onclick="taskMonitor.removeFileFromSelection(${index})" title="Remove">
-                        ×
-                    </button>
-                </div>
-            `;
-        }).join('');
-
-        container.innerHTML = html;
-    }
-
-    /**
-     * Check if a path is a directory based on file tree data
-     */
-    isDirectoryPath(path) {
-        // Simple heuristic: if it doesn't have an extension, it's likely a directory
-        const pathParts = path.split('/');
-        const fileName = pathParts[pathParts.length - 1];
-        return !fileName.includes('.') || path === 'venv' || path === 'backend' || path === 'frontend' || path === 'tasksync';
-    }
-
-    /**
-     * Remove file from temporary selection
-     */
-    removeFileFromSelection(index) {
-        const filePath = this.tempSelectedFiles[index];
-        this.tempSelectedFiles.splice(index, 1);
-        
-        // Update UI
-        const fileElement = document.querySelector(`[data-path="${filePath}"]`);
-        if (fileElement) {
-            fileElement.classList.remove('selected');
-        }
-        
-        this.updateSelectedFilesPreview();
-        this.updateSelectionCounter();
-        
-        // Update select button
-        const selectBtn = document.getElementById('select-files-btn');
-        if (selectBtn) {
-            selectBtn.disabled = this.tempSelectedFiles.length === 0;
-        }
-    }
-
-    /**
-     * Confirm file selection and auto-add to tasks.md
-     */
-    confirmFileSelection() {
-        // Add selected files to the main list
-        for (const filePath of this.tempSelectedFiles) {
-            if (!this.selectedFiles.includes(filePath)) {
-                this.selectedFiles.push(filePath);
-            }
-        }
-        
-        // Update the main UI
-        this.renderFileChips();
-        
-        // Close modal
-        this.hideFileBrowser();
-        
-        // Clear temporary selection
-        this.tempSelectedFiles = [];
-    }
-
-    /**
-     * Auto-add selected files to tasks.md
-     */
     /**
      * Format file size for display
      */
     formatFileSize(bytes) {
-        if (bytes === 0) return '0 B';
-        const k = 1024;
+        if (!bytes) return '';
         const sizes = ['B', 'KB', 'MB', 'GB'];
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        const i = Math.floor(Math.log(bytes) / Math.log(1024));
+        return Math.round(bytes / Math.pow(1024, i)) + sizes[i];
     }
     
     /**
-     * File selection handling (legacy method - now unused)
-     */
-    handleFileSelection() {
-        // Simple file reference input for now
-        const fileInput = prompt('Enter file path (relative to workspace):');
-        if (fileInput && fileInput.trim()) {
-            this.selectedFiles.push(fileInput.trim());
-            this.renderFileChips();
-        }
-    }
-    
-    /**
-     * Render file chips
+     * Render file chips in the main UI
      */
     renderFileChips() {
-        const container = document.getElementById('file-chips');
+        const container = document.querySelector('.file-chips');
         if (!container) return;
-        
+
         if (this.selectedFiles.length === 0) {
             container.innerHTML = '';
             return;
         }
-        
-        const chipsHtml = this.selectedFiles.map((file, index) => `
+
+        container.innerHTML = this.selectedFiles.map((file, index) => `
             <div class="file-chip">
-                <span>${this.escapeHtml(file)}</span>
-                <button class="file-chip-remove" data-index="${index}" title="Remove file">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
+                <span class="file-name">${this.escapeHtml(file)}</span>
+                <button class="remove-chip" data-index="${index}" title="Remove">×</button>
             </div>
         `).join('');
         
-        container.innerHTML = chipsHtml;
-        
         // Add event listeners to remove buttons
-        container.querySelectorAll('.file-chip-remove').forEach(button => {
+        container.querySelectorAll('.remove-chip').forEach(button => {
             button.addEventListener('click', (e) => {
                 const index = parseInt(e.currentTarget.getAttribute('data-index'));
                 this.removeFile(index);
             });
         });
     }
-    
+
     /**
-     * Remove file from selection
+     * Remove file from main selection
      */
     removeFile(index) {
-        this.selectedFiles.splice(index, 1);
-        this.renderFileChips();
+        if (index >= 0 && index < this.selectedFiles.length) {
+            this.selectedFiles.splice(index, 1);
+            this.renderFileChips();
+        }
     }
     
     /**
-     * Show notification
+     * Show notification message
      */
     showNotification(message, type = 'info') {
-        // Simple notification - could be enhanced with a proper notification system
-        console.log(`[${type.toUpperCase()}] ${message}`);
+        console.log(`${type.toUpperCase()}: ${message}`);
         
-        // Add to log as well
-        const icon = {
-            'info': 'ℹ️',
-            'success': '✅',
-            'warning': '⚠️',
-            'error': '❌'
-        }[type] || 'ℹ️';
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        notification.style.cssText = `
+            position: fixed; top: 20px; right: 20px; z-index: 10000;
+            padding: 12px 16px; border-radius: 6px; color: white;
+            background: ${type === 'success' ? '#22c55e' : type === 'error' ? '#ef4444' : '#3b82f6'};
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        `;
         
-        this.addLogEntry(`${icon} ${message}`);
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 3000);
     }
-    
+
     /**
      * Initialize theme on page load
      */
@@ -1396,6 +1400,15 @@ class TaskSyncMonitor {
                 lightIcon.style.display = 'none';
             }
         }
+    }
+    
+    /**
+     * Start the application (called after DOM initialization)
+     */
+    start() {
+        // Application is already initialized in constructor
+        // This method exists for compatibility with the initialization call
+        console.log('🚀 TaskSync Monitor started successfully');
     }
     
     /**

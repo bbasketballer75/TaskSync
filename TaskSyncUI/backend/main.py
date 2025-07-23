@@ -53,7 +53,8 @@ class AppState:
         self.check_count: int = 0
         self.baseline_word_count: int = 0
         # Use absolute path to ensure file monitoring works correctly
-        self.workspace_path = Path(__file__).parent.parent.parent.absolute()
+        # Go up to testweb root directory (4 levels up from backend/main.py)
+        self.workspace_path = Path(__file__).parent.parent.parent.parent.absolute()
         # Store tasks.md and log.md in TaskSync/TaskSyncUI/tasksync/
         self.tasksync_path = Path(__file__).parent.parent.absolute() / "tasksync"
         self.tasks_file = self.tasksync_path / "tasks.md"
@@ -648,21 +649,22 @@ async def handle_file_tree_request(websocket: WebSocket):
 
 def get_workspace_file_tree() -> Dict:
     """Get workspace file tree structure"""
-    def build_tree(path: Path, max_depth: int = 3, current_depth: int = 0) -> Dict:
+    def build_tree(path: Path, max_depth: int = 5, current_depth: int = 0) -> Dict:
         if current_depth >= max_depth:
             return {}
         
         tree = {}
         try:
             for item in sorted(path.iterdir()):
-                # Skip hidden files and common ignore patterns
-                if item.name.startswith('.') or item.name in ['node_modules', '__pycache__', 'dist', 'build']:
+                # Skip hidden files and common ignore patterns but not __pycache__ for debugging
+                if item.name.startswith('.') or item.name in ['node_modules', 'dist', 'build', 'venv']:
                     continue
                 
                 if item.is_dir():
+                    children = build_tree(item, max_depth, current_depth + 1)
                     tree[item.name] = {
                         "type": "directory",
-                        "children": build_tree(item, max_depth, current_depth + 1)
+                        "children": children
                     }
                 else:
                     tree[item.name] = {
