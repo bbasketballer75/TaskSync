@@ -83,7 +83,7 @@ This automatically sets up the environment and opens a web interface at http://l
 
 ## 🛠️ How to Use
 
-Tell the AI to 
+Tell the agent to 
 ```markdown
 Strictly adhere to TaskSync Protocol #tasksync.md"
 ```
