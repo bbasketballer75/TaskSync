@@ -92,11 +92,11 @@ Note: tasksync.md prompt file must be attached.
 ### File Mode
 
 Simply edit your `tasks.md` file e.g.: 
-
+```markdown
 # Task
 Fix the authentication bug in login.tsx
 Add TypeScript types for user profile
-
+```
 ### Web Interface Mode
 
 1. **Launch**: `python3 start.py` → Opens http://localhost:8000
