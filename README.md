@@ -76,12 +76,13 @@ python3 start.py
 ```
 
 This automatically sets up the environment and opens a web interface at http://localhost:8000.
+<img width="1017" height="521" alt="image" src="https://github.com/user-attachments/assets/0659ffc0-4310-4b6b-bf2c-2838c97863d7" />
 
 ---
 
 ## ✨ Key Features
 
-* **Infinite Monitoring**: AI never terminates automatically - operates continuously until manually stopped
+* **Infinite Monitoring**: Agent never terminates automatically - operates continuously until manually stopped
 * **Task Continuation Priority**: Completes current tasks before processing new instructions
 * **Dual File System**: Uses `tasks.md` for instructions and `log.md` for status tracking  
 * **Urgent Override Detection**: Keywords like "STOP CURRENT TASK", "CORRECTION" interrupt current work
