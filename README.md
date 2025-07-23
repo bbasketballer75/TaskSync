@@ -31,7 +31,11 @@ echo ".github/*" > .git/info/sparse-checkout
 git read-tree -m -u HEAD
 ```
 *Note: If you use one-click install, create *`tasks.md`* and *`log.md`* files in your workspace.*
-
+**For optimal results with Copilot**, enable "Auto Approve" and set "Max Requests" to 100 in your settings. This allows the agent to execute commands and handle long tasks without interruption. Adjust these settings via the UI or your user settings JSON file:
+```text
+"chat.tools.autoApprove": true,
+"chat.agent.maxRequests": 100
+```
 **🎯 Cursor**
 ```bash
 git clone --no-checkout https://github.com/4regab/TaskSync.git
