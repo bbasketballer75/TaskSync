@@ -14,57 +14,58 @@ https://github.com/user-attachments/assets/a4737779-b877-4e12-8990-1a70a7b09dcc
 - **Never terminates automatically** - maintains persistent operation until you explicitly stop it
 - **Self-correcting behavior** - when AI makes mistakes, it reads your corrections and fixes its mistakes
 **Works with any AI IDEs** - Kiro, Copilot, Cursor, Windsurf, Trae IDE, and more  
+
 ---
-
 ## 🚀 Getting Started
-
 ### Option 1: File Mode 
-
 The simplest way to use TaskSync is through files and your existing AI IDE:
 
 **🎯 VS Code Copilot**
-
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect?url=vscode%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2F4regab%2FTaskSync%2Fmain%2F.github%2Finstructions%2Ftasksync.instructions.md) [![Install in VS Code](https://img.shields.io/badge/VS_Code_Insiders-Install-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Achat-instructions%2Finstall%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2F4regab%2FTaskSync%2Fmain%2F.github%2Finstructions%2Ftasksync.instructions.md)
-
 ```bash
-git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
+git clone --no-checkout https://github.com/4regab/TaskSync.git
 cd TaskSync
-git sparse-checkout set .github
+git sparse-checkout init
+echo ".github/*" > .git/info/sparse-checkout
+git read-tree -m -u HEAD
 ```
-*Note: If you use one-click install, create `tasks.md` and `log.md` files in your workspace.*
+*Note: If you use one-click install, create *`tasks.md`* and *`log.md`* files in your workspace.*
 
 **🎯 Cursor**
-
 ```bash
-git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
+git clone --no-checkout https://github.com/4regab/TaskSync.git
 cd TaskSync
-git sparse-checkout set .cursor
+git sparse-checkout init
+echo ".cursor/*" > .git/info/sparse-checkout
+git read-tree -m -u HEAD
 ```
 
 **🎯 Kiro**
-
 ```bash
-git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
+git clone --no-checkout https://github.com/4regab/TaskSync.git
 cd TaskSync
-git sparse-checkout set .kiro
+git sparse-checkout init
+echo ".kiro/*" > .git/info/sparse-checkout
+git read-tree -m -u HEAD
 ```
 
 **🎯 Any IDE (Global)**
-
 ```bash
-git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
+git clone --no-checkout https://github.com/4regab/TaskSync.git
 cd TaskSync
-git sparse-checkout set .global
+git sparse-checkout init
+echo ".global/*" > .git/info/sparse-checkout
+git read-tree -m -u HEAD
 ```
 
 ### Option 2: TaskSync UI
-
 For users who prefer a visual interface with real-time monitoring:
-
 ```bash
-git clone --filter=blob:none --sparse https://github.com/4regab/TaskSync.git
+git clone --no-checkout https://github.com/4regab/TaskSync.git
 cd TaskSync
-git sparse-checkout set TaskSyncUI
+git sparse-checkout init
+echo "TaskSyncUI/*" > .git/info/sparse-checkout
+git read-tree -m -u HEAD
 cd TaskSyncUI
 python3 start.py
 ```
