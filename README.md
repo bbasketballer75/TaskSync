@@ -81,24 +81,14 @@ This automatically sets up the environment and opens a web interface at http://l
 
 ---
 
-## ✨ Key Features
+## 🛠️ How to Use
 
-* **Infinite Monitoring**: Agent never terminates automatically - operates continuously until manually stopped
-* **Task Continuation Priority**: Completes current tasks before processing new instructions
-* **Dual File System**: Uses `tasks.md` for instructions and `log.md` for status tracking  
-* **Urgent Override Detection**: Keywords like "STOP CURRENT TASK", "CORRECTION" interrupt current work
-* **Cross-Platform**: Windows, macOS, Linux compatibility
-* **Optional Web Interface**: Modern dashboard with real-time monitoring for visual users
-
----
-
-## 🛠️ Usage Demo
-
-Tell the AI to "Strictly follow Tasksync.md"
+Tell the AI to "Strictly adhere to TaskSync Protocol #tasksync.md"
+tasksync.md file must be attached.
 
 ### File Mode
 
-Simply edit your `tasks.md` file:
+Simply edit your `tasks.md` file e.g.: 
 
 ```markdown
 # Task
@@ -107,14 +97,25 @@ Add TypeScript types for user profile
 
 ```
 
-The AI agent automatically detects changes and executes tasks.
+The agent automatically detects changes and executes tasks.
 
 ### Web Interface Mode
 
 1. **Launch**: `python3 start.py` → Opens http://localhost:8000
 2. **Submit Tasks**: Use categories (Task, Development, Bug Fix, Process)
-3. **File References**: Click 📎 to browse and reference files for context
+3. **File References**: Click 📎 to browse and reference files for context (optional)
 4. **Monitor Progress**: Watch real-time log updates as the agent works
+
+---
+
+## ✨ Key Features
+
+* **Infinite Monitoring**: Agent never terminates automatically - operates continuously until manually stopped
+* **Task Continuation Priority**: Completes current tasks before processing new instructions
+* **Dual File System**: Uses `tasks.md` for instructions and `log.md` for status tracking  
+* **Urgent Override Detection**: Keywords like "STOP CURRENT TASK", "CORRECTION" interrupt current work
+* **Cross-Platform**: Windows, macOS, Linux compatibility
+* **Optional Web Interface**: Modern dashboard with real-time monitoring for visual users
 
 ---
 
