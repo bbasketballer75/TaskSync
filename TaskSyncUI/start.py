@@ -66,7 +66,7 @@ def install_dependencies():
 def create_directories():
     """Create necessary directories if they don't exist."""
     dirs_to_create = [
-        ".tasksync",
+        "tasksync",
         "backend",
         "frontend/css",
         "frontend/js"
@@ -76,8 +76,8 @@ def create_directories():
         Path(dir_path).mkdir(parents=True, exist_ok=True)
     
     # Create empty task and log files if they don't exist
-    task_file = Path(".tasksync/tasks.md")
-    log_file = Path(".tasksync/log.md")
+    task_file = Path("tasksync/tasks.md")
+    log_file = Path("tasksync/log.md")
     
     if not task_file.exists():
         task_file.write_text("# Current Tasks\n\n<!-- Tasks will appear here -->\n")
