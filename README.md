@@ -63,7 +63,31 @@ echo ".global/*" > .git/info/sparse-checkout
 git read-tree -m -u HEAD
 ```
 
-### Option 2: TaskSync UI
+### Option 2: TaskSync VS Code Extension
+For VS Code users who want an integrated extension experience:
+
+**Features:**
+- 🎯 **Integrated Chat Interface**: Send tasks directly through VS Code sidebar
+- 🤖 **One-Click Copilot Integration**: Click copilot button to activate GitHub Copilot with TaskSync protocol
+- 📁 **Automatic File Management**: Creates and manages `tasks.md` and `log.md` files
+- 📎 **File Attachment Support**: Reference files for context
+- 🏷️ **Task Categorization**: Organize tasks by type (Task, Bug, Feature, Research)
+- 💬 **Real-time Chat**: View conversation history and responses
+
+**Installation:**
+1. Download `tasksync-chat-1.0.0.vsix` from the `TaskSyncExtension` folder
+2. Open VS Code
+3. Press `Ctrl+Shift+P` and type "Extensions: Install from VSIX"
+4. Select the downloaded `.vsix` file
+5. Reload VS Code when prompted
+
+**Usage:**
+1. Click the TaskSync icon in VS Code sidebar
+2. Write your task in the input field
+3. Click the Copilot button 🤖 (only needed for first initialization or when chat ends)
+4. Continue working - after initialization, just write and send tasks normally
+
+### Option 3: TaskSync UI
 For users who prefer a visual interface with real-time monitoring:
 ```bash
 git clone --no-checkout https://github.com/4regab/TaskSync.git
@@ -135,6 +159,7 @@ TaskSync uses terminal-based word count monitoring to efficiently detect file ch
 ## 🎉 What's New in V3
 
 - **🎨 TaskSync UI**: Modern web interface for users who prefer visual interface
+- **🔌 VS Code Extension**: Integrated extension with chat interface and one-click Copilot integration
 - **🔄 Enhanced Protocol**: Improved TaskSync Instructions for better persistence and enhanced file reference handling
 - **🔧 Better Cross-Platform Support**: Windows, macOS, Linux compatibility
 - **📝 File Path**: File reference for more context for agent
