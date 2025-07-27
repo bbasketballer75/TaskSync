@@ -1,18 +1,4 @@
-# TaskSync Extension
-
-🚀 **Save premium requests on your AI coding IDEs!**
-
-TaskSync is an autonomous agent protocol that creates persistent agents for VS Code. Instead of typing lots of messages back and forth, you write tasks in a `tasks.md` file. Your AI agent continuously monitors this file, executes tasks autonomously, and maintains persistent operation until manually terminated.
-
-## What TaskSync Does
-
-- **Add new task in one request** - Provide new instructions to the agent without sending a new chat message by simply adding tasks to the `tasks.md` file <mcreference link="https://github.com/4regab/TaskSync" index="1">1</mcreference>
-- **Task continuation priority** - Completes current tasks before processing new instructions (unless urgent override detected) <mcreference link="https://github.com/4regab/TaskSync" index="1">1</mcreference>
-- **Dual file system** - Uses `tasks.md` for instructions and separate `log.md` for status tracking <mcreference link="https://github.com/4regab/TaskSync" index="1">1</mcreference>
-- **Real-time status logging** - Writes progress monitoring into dedicated `log.md` <mcreference link="https://github.com/4regab/TaskSync" index="1">1</mcreference>
-- **Never terminates automatically** - Maintains persistent operation until you explicitly stop it <mcreference link="https://github.com/4regab/TaskSync" index="1">1</mcreference>
-- **Self-correcting behavior** - When AI makes mistakes, it reads your corrections and fixes its mistakes <mcreference link="https://github.com/4regab/TaskSync" index="1">1</mcreference>
-- **Works with any AI IDEs** - Kiro, Copilot, Cursor, Windsurf, Trae IDE, and more <mcreference link="https://github.com/4regab/TaskSync" index="1">1</mcreference>
+# TaskSync VS Code Extension
 
 ## Features
 
