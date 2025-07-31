@@ -257,12 +257,7 @@ To use a previous version, simply download the specific tasksync.md file and fol
 
 ## 🤝 Community
 
-The TaskSync community can be found on [GitHub Discussions](https://github.com/4regab/TaskSync/discussions) where you can ask questions, voice ideas, and share your projects with other people.
-
-## 🛠️ Contributing
-
-Contributions to TaskSync are welcome and highly appreciated. However, before you jump right into it, we would like you to review our [Contribution Guidelines](https://github.com/4regab/TaskSync/blob/main/CONTRIBUTING.md) to make sure you have a smooth experience contributing to TaskSync.
-
+The TaskSync community can be found on [GitHub Discussions](https://github.com/4regab/TaskSync/discussions) where you can ask questions, voice ideas, and share your projects with other people. Contributions to TaskSync are welcome and highly appreciated. 
 ---
 
 ## 📊 Star History
