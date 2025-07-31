@@ -107,7 +107,7 @@ For VS Code users who want an integrated extension experience:
 
 **Installation:**
 
-[![Install TaskSync Extension](https://img.shields.io/badge/VS_Code-Install_TaskSync-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](vscode:extension/4regab.tasksync-chat)
+[![Install TaskSync Extension](https://img.shields.io/badge/VS_Code-Install_TaskSync-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=4regab.tasksync-chat)
 
 _Source code available in the [TaskSyncExtension](https://github.com/4regab/TaskSync/tree/main/TaskSyncExtension) folder - this is an open source project._
 
