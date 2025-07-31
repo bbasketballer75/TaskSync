@@ -8,22 +8,20 @@
 - **Task Categories**: Organize tasks by type (Task, Bug, Feature, Research, etc.)
 - **Real-time Updates**: Live chat updates as tasks are processed
 - **Log Management**: Automatic logging of all interactions
-- **Cross-Platform**: Windows, macOS, Linux compatibility <mcreference link="https://github.com/4regab/TaskSync" index="1">1</mcreference>
 
 ## Installation
 
-### Install from VSIX (Recommended)
+### Install from VS Code Marketplace (Recommended)
 
-1. **Download the Extension**:
-   - Download the `tasksync-chat-1.0.0.vsix` file from this repository
+[![Install TaskSync Extension](https://img.shields.io/badge/VS_Code-Install_TaskSync-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=4regab.tasksync-chat)
 
-2. **Install in VS Code**:
+1. **One-Click Install**: Click the button above to go directly to the marketplace
+2. **Manual Search**:
    - Open VS Code
    - Go to Extensions (Ctrl+Shift+X)
-   - Click the "..." menu and select "Install from VSIX..."
-   - Select the downloaded `.vsix` file
-   - The extension will be installed and available immediately
-   - When signed in to VS Code, it will sync to all your Windows machines automatically
+   - Search for "TaskSync Chat"
+   - Click Install on the extension by 4regab
+3. **Command Line**: `code --install-extension 4regab.tasksync-chat`
 
 ### Development Installation
 
@@ -60,17 +58,20 @@
 ### Extension Features
 
 **Real-time Chat Interface**:
+
 - Send tasks directly through the extension panel
 - View conversation history and responses
 - File attachment support for context
 - Task categorization (Task, Bug, Feature, Research, etc.)
 
 **Automatic File Management**:
+
 - Creates and maintains `tasks.md` and `log.md` files
 - Real-time synchronization with chat interface
 - Persistent task history and logging
 
 **Available Commands**:
+
 - `tasksync:start` - Begin monitoring tasks.md
 - `tasksync:stop` - Stop monitoring
 - `tasksync:status` - Check current monitoring status
@@ -79,11 +80,13 @@
 ## Development
 
 ### Building
+
 ```bash
 npm run compile
 ```
 
 ### Packaging
+
 ```bash
 vsce package
 ```

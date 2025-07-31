@@ -3,7 +3,7 @@
   <h1>TaskSync</h1>
 </div>
 
-**Save premium requests on your AI coding IDEs**. This simple prompt instructions helps your agent work more efficiently, reduce premium request usage, and allow you to give the agent new instructions while it's currently working or after completing a task.
+**Save premium requests on your AI IDEs**. This simple prompt instructions helps your agent work more efficiently, reduce premium request usage, and allow you to give the agent new instructions while it's currently working or after completing a task.
 
 ## What This Does
 
