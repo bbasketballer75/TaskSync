@@ -107,11 +107,11 @@ _Source code available in the [TaskSyncExtension](https://github.com/4regab/Task
 **Features:**
 
 - 🎯 **Integrated Chat Interface**: Send tasks directly through VS Code sidebar
-- 🤖 **One-Click Copilot Integration**: Click copilot button to activate GitHub Copilot with TaskSync protocol
+- 🤖 **One-Click Copilot Activation**: This button also copies the TaskSync protocol prompt to your clipboard. For other IDEs like Trae or Cursor, paste the copied prompt into the chat. You only need to click/send this for the first initialization or when the chat ends.
 - 📁 **Automatic File Management**: Creates and manages `tasks.md` and `log.md` files
 - 📎 **File Attachment Support**: Reference files for context
 - 🏷️ **Task Categorization**: Organize tasks by type (Task, Bug, Feature, Research)
-- 💬 **Real-time Chat**: View conversation history and responses
+- 💬 **Real-time Chat**: View conversation history and responses instantly
 
 
 ### Option 3: TaskSync UI
