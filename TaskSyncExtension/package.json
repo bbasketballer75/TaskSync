@@ -1,18 +1,18 @@
 {
   "name": "tasksync-chat",
-  "displayName": "TaskSync Extension",
-  "description": "A VS Code extension for task management with AI agent integration and file reference support",
-  "version": "1.0.0",
+  "displayName": "TaskSync",
+  "description": "A VS Code extension for tasksync protocol and file reference support",
+  "version": "1.0.4",
   "icon": "icon.png",
-  "publisher": "your-publisher-name",
+  "publisher": "4regab",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/tasksync-extension.git"
+    "url": "https://github.com/4regab/TaskSync.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/tasksync-extension/issues"
+    "url": "https://github.com/4regab/TaskSync/issues"
   },
-  "homepage": "https://github.com/your-username/tasksync-extension#readme",
+  "homepage": "https://github.com/4regab/TaskSync/tree/main/TaskSyncExtension#readme",
   "keywords": [
     "task management",
     "ai integration",
