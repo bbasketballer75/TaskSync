@@ -174,17 +174,8 @@ Add TypeScript types for user profile
 3. **Add Tasks**: Write your task in the input field and press Enter
 4. **Attach Files**: Use the 📎 button to reference files for context (optional)
 5. **Categorize**: Select task type (Task, Bug, Feature, Research) from dropdown
-6. **Monitor Progress**: View real-time responses and conversation history
+6. **Monitor Progress**: View real-time responses and log history
 7. **Continue Working**: After initialization, just write and send tasks normally - no need to click Copilot button again
-
-**Features:**
-
-- Real-time chat interface
-- Automatic file management (creates tasks.md and log.md)
-- File attachment support
-- Task categorization
-- Conversation history
-
 </details>
 
 <details>
