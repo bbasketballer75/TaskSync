@@ -96,6 +96,14 @@ git read-tree -m -u HEAD
 
 For VS Code users who want an integrated extension experience:
 
+**Installation:**
+
+[![TaskSync Extension](https://img.shields.io/badge/VS_Code-Install_TaskSync-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=4regab.tasksync-chat)
+
+If you have issues installing the extension on other IDEs follow this guide:[VSIX Installation Guide](https://docs.trae.ai/ide/manage-extensions)
+
+_Source code available in the [TaskSyncExtension](https://github.com/4regab/TaskSync/tree/main/TaskSyncExtension) folder - this is an open source project._
+
 **Features:**
 
 - 🎯 **Integrated Chat Interface**: Send tasks directly through VS Code sidebar
@@ -105,20 +113,6 @@ For VS Code users who want an integrated extension experience:
 - 🏷️ **Task Categorization**: Organize tasks by type (Task, Bug, Feature, Research)
 - 💬 **Real-time Chat**: View conversation history and responses
 
-**Installation:**
-
-[![TaskSync Extension](https://img.shields.io/badge/VS_Code-Install_TaskSync-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=4regab.tasksync-chat)
-
-If you have issues installing the extension on other IDEs follow this guide:[VSIX Installation Guide](https://docs.trae.ai/ide/manage-extensions)
-
-_Source code available in the [TaskSyncExtension](https://github.com/4regab/TaskSync/tree/main/TaskSyncExtension) folder - this is an open source project._
-
-**Usage:**
-
-1. Click the TaskSync icon in VS Code sidebar
-2. Write your task in the input field
-3. Click the Copilot button 🤖 (only needed for first initialization or when chat ends)
-4. Continue working - after initialization, just write and send tasks normally
 
 ### Option 3: TaskSync UI
 
