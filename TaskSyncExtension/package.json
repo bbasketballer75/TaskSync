@@ -2,7 +2,7 @@
   "name": "tasksync-chat",
   "displayName": "TaskSync",
   "description": "A VS Code extension for tasksync protocol and file reference support",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "icon": "icon.png",
   "publisher": "4regab",
   "repository": {

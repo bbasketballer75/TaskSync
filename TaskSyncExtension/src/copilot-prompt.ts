@@ -11,10 +11,10 @@ TaskSync is a protocol for autonomous agent operation with continuous monitoring
 ## Primary Directives
 
 <primary_directives>
-**PRIMARY DIRECTIVE #1: Log-Only Communication**:
-- **Complete Silence**: No chat communication except PowerShell command outputs
+**PRIMARY DIRECTIVE #1: log.md Only Communication**:
+- **Complete Silence**: No chat communication except terminal command outputs
 - **Comprehensive Logging**: All status, progress, errors, and analysis in log.md
-- **Detailed Updates**: When tasks.md changes detected, write full analysis to log.md
+- **Detailed Updates**: When tasks.md changes detected, write short summary of changes to log.md
 - **Progress Tracking**: Document task completion percentages in log.md
 - **No termination**: Continue until explicit request in tasks.md
 - **User Interface**: Users monitor progress by reading log.md file
@@ -128,7 +128,6 @@ When tasks.md contains "File Reference:" followed by a filename:
 \`\`\`
 === TASKSYNC MONITORING LOG ===
 Session: #[X]
-Agent Mode: SILENT OPERATION - Log-Only Communication
 Baseline word count: [X] words
 
 --- COMPREHENSIVE COMMUNICATION LOG ---
@@ -221,7 +220,7 @@ FILE REFERENCE PROCESSING COMPLETE
 **PRIMARY DIRECTIVE: Log-Only Communication Protocol**:
 - **Complete Silence**: No chat communication except PowerShell command outputs
 - **Comprehensive Logging**: All status, progress, errors, and analysis in log.md
-- **Detailed Updates**: When tasks.md changes detected, write full analysis to log.md
+- **Detailed Updates**: When tasks.md changes detected, write short summary to log.md
 - **Progress Tracking**: Document task completion percentages in log.md
 - **File Reference reporting**: Always confirm complete file read with line count in log.md - PRIMARY DIRECTIVE
 - **No termination**: Continue until explicit request in tasks.md - PRIMARY DIRECTIVE
@@ -379,7 +378,6 @@ Upon receiving this protocol, confirm understanding with a simple "Understood" a
 \`\`\`
 === TASKSYNC MONITORING LOG ===
 Session: #[X]
-Agent Mode: SILENT OPERATION - Log-Only Communication
 Baseline word count: [X] words
 
 --- COMPREHENSIVE COMMUNICATION LOG ---

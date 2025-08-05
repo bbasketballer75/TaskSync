@@ -25,7 +25,28 @@ https://github.com/user-attachments/assets/a4737779-b877-4e12-8990-1a70a7b09dcc
 
 ## 🚀 Getting Started
 
-### Option 1: File Mode
+### Option 1: TaskSync VS Code Extension (Recommended)
+
+For VS Code users who want an integrated extension experience:
+
+**Installation:**
+[![TaskSync Extension](https://img.shields.io/badge/VS_Code-Install_TaskSync-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=4regab.tasksync-chat)
+
+
+If you have issues installing the extension on other IDEs follow this guide:[VSIX Installation Guide](https://docs.trae.ai/ide/manage-extensions)
+
+_Source code available in the [TaskSyncExtension](https://github.com/4regab/TaskSync/tree/main/TaskSyncExtension) folder - this is an open source project._
+
+**Features:**
+
+- 🎯 **Integrated Chat Interface**: Send tasks directly through VS Code sidebar
+- 🤖 **One-Click Copilot Activation**:You only need to click/send this for the first initialization or when the chat ends.
+- 📁 **Automatic File Management**: Creates and manages `tasks.md` and `log.md` files
+- 📎 **File Attachment Support**: Reference files for context
+- 🏷️ **Task Categorization**: Organize tasks by type (Task, Bug, Feature, Research)
+- 💬 **Real-time Chat**: View conversation history and responses instantly
+
+### Option 2: File Mode
 
 The simplest way to use TaskSync is through files and your existing AI IDE. Choose your IDE below:
 
@@ -92,27 +113,6 @@ git read-tree -m -u HEAD
 
 </details>
 
-### Option 2: TaskSync VS Code Extension
-
-For VS Code users who want an integrated extension experience:
-
-**Installation:**
-
-[![TaskSync Extension](https://img.shields.io/badge/VS_Code-Install_TaskSync-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=4regab.tasksync-chat)
-
-If you have issues installing the extension on other IDEs follow this guide:[VSIX Installation Guide](https://docs.trae.ai/ide/manage-extensions)
-
-_Source code available in the [TaskSyncExtension](https://github.com/4regab/TaskSync/tree/main/TaskSyncExtension) folder - this is an open source project._
-
-**Features:**
-
-- 🎯 **Integrated Chat Interface**: Send tasks directly through VS Code sidebar
-- 🤖 **One-Click Copilot Activation**:You only need to click/send this for the first initialization or when the chat ends.
-- 📁 **Automatic File Management**: Creates and manages `tasks.md` and `log.md` files
-- 📎 **File Attachment Support**: Reference files for context
-- 🏷️ **Task Categorization**: Organize tasks by type (Task, Bug, Feature, Research)
-- 💬 **Real-time Chat**: View conversation history and responses instantly
-
 
 ### Option 3: TaskSync UI
 
@@ -139,6 +139,18 @@ This automatically sets up the environment and opens a web interface at http://l
 Choose your preferred method below:
 
 <details>
+<summary><strong>🔌 VS Code Extension</strong></summary>
+
+1. **Open TaskSync Panel**: Click the TaskSync icon in VS Code sidebar
+2. **Initialize Agent**: Click the Copilot button 🤖 (only needed for first initialization or when chat ends) This button also copies the TaskSync protocol prompt to your clipboard, that you can paste into the chat of other IDEs you use to initialize. 
+3. **Add Tasks**: Write your task in the input field and press Enter
+4. **Attach Files**: Use the 📎 button to reference files for context (optional)
+5. **Categorize**: Select task type (Task, Bug, Feature, Research) from dropdown
+6. **Monitor Progress**: View real-time responses and log history
+7. **Continue Working**: After initialization, just write and send tasks normally - no need to click Copilot button again
+</details>
+
+<details>
 <summary><strong>📁 File Mode</strong></summary>
 
 Tell the agent to:
@@ -160,18 +172,6 @@ Add TypeScript types for user profile
 
 **The agent automatically detects changes and executes tasks**
 
-</details>
-
-<details>
-<summary><strong>🔌 VS Code Extension</strong></summary>
-
-1. **Open TaskSync Panel**: Click the TaskSync icon in VS Code sidebar
-2. **Initialize Agent**: Click the Copilot button 🤖 (only needed for first initialization or when chat ends) This button also copies the TaskSync protocol prompt to your clipboard, that you can paste into the chat of other IDEs you use to initialize. 
-3. **Add Tasks**: Write your task in the input field and press Enter
-4. **Attach Files**: Use the 📎 button to reference files for context (optional)
-5. **Categorize**: Select task type (Task, Bug, Feature, Research) from dropdown
-6. **Monitor Progress**: View real-time responses and log history
-7. **Continue Working**: After initialization, just write and send tasks normally - no need to click Copilot button again
 </details>
 
 <details>
