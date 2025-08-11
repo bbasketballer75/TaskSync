@@ -9,7 +9,7 @@ This simple prompt instructions helps you  work more efficiently, reduce premium
 
 TaskSync is a **terminal-based task agent** with direct terminal communication. Your coding agent will actively requests tasks or feedback through `$task = Read-Host "Enter your task"` command, executes tasks autonomously, and operates forever until you stop it.
 
-https://github.com/user-attachments/assets/479fe501-b421-42a6-8ff4-84af1eeee43e
+https://github.com/user-attachments/assets/b6828057-ed41-4933-b57e-3e7fc0cc8d6e
 
 ## Features
 - **Human-in-the-loop workflow** - Provide feedback or new task, saving you premium requests on your AI IDEs
