@@ -1,542 +1,241 @@
-# TaskSync V3 Examples & Workflows
+# TaskSync v4 Examples & Workflows
 
-Complete examples showing how to use TaskSync V3 effectively with your AI coding assistant, featuring dual-mode operation (file-based and web UI), enhanced cross-platform monitoring, and autonomous agent protocols.
+Complete examples showing how to use TaskSync v4's revolutionary terminal-based autonomous agent protocol with direct PowerShell communication, featuring real-time task processing, persistent agent operation, and manual termination controls.
 
-## 🚀 Example 1: Web Application Development (Dual Mode)
+## 🚀 Example 1  (TaskSync v4)
 
-### Option 1: File-Based Mode (Traditional)
+### Quick Start: Direct Agent Communication
 
-Start by creating or editing your `tasks.txt` file:
-
-```text
-# Project: User Management System
-Create a modern web application with:
-1. User registration with email verification
-2. Login/logout functionality  
-3. Password reset feature
-4. User profile management
-5. Responsive design with modern UI
-
-Tech stack: React, Node.js, MongoDB
+**Step 1: Initialize Terminal Agent**
+Provide the TaskSync v4 protocol file (`tasksync.md`) as context and tell your AI:
+```
+Strictly adhere to TaskSync Protocol #tasksync.md
 ```
 
-### Option 2: TaskSyncUI Mode (Web Interface)
+**Step 2: Agent Activation**
+The AI immediately becomes a terminal-based autonomous agent:
 
-Launch the TaskSync Monitor UI:
+```powershell
+TaskSync Terminal Agent initialized. Requesting first task.
+Enter your task (or 'none' if no new tasks): Create a modern user management web application with React, Node.js, and MongoDB
+[INTERNAL: State - Active]
+[INTERNAL: Current Task - Create modern user management web application]
+Received task: Create a modern user management web application with React, Node.js, and MongoDB. Beginning execution...
 
-```bash
-cd TaskSyncUI
-python start.py
+Requirements identified:
+- User registration with email verification
+- Login/logout functionality  
+- Password reset feature
+- User profile management
+- Responsive design with modern UI
+- Backend API with authentication
+- MongoDB database integration
+
+Starting development with project structure setup...
 ```
 
-Navigate to `http://localhost:8000` and:
-- View real-time file monitoring dashboard
-- Edit tasks.txt directly in the web interface
-- Watch live status updates via WebSocket
-- Monitor cross-platform operations
+### Terminal-Based Task Management
 
-### Cross-Platform Monitoring System (Enhanced V3)
-The AI automatically creates and maintains `log.txt` using enhanced cross-platform detection:
-
-
-```text
-=== TASKSYNC V3 MONITORING LOG ===
-Session: #1
-Platform: Linux/macOS/Windows
-Baseline word count: 47
-
---- MONITORING STATUS ---
-Check #1: Word count: 47 words (baseline). Initial task received.
-Check #2: Word count: 47 words (no change). Task in progress.
-Check #3: Word count: 63 words (CHANGE DETECTED). Reading tasks.txt...
-Check #4: Word count: 63 words (no change). Implementing changes.
+**Immediate Task Completion Response:**
+```powershell
+User management system completed successfully. All components functional.
+Task completed. Requesting next task from terminal.
+Enter your task (or 'none' if no new tasks): Add OAuth2 integration with Google and GitHub
+[INTERNAL: State - Active]
+[INTERNAL: Current Task - Add OAuth2 integration with Google and GitHub]
+Received task: Add OAuth2 integration with Google and GitHub. Beginning execution...
 ```
 
-**V3 Protocol Enhancements:**
-- Cross-platform compatibility (Windows, macOS, Linux)
-- Enhanced file monitoring with WebSocket support (UI mode)
-- Improved session persistence across IDE restarts
-- Dual-mode operation: traditional file-based or modern web UI
+### Continuous Operation Example
 
+**Full Session Flow:**
+```powershell
+TaskSync Terminal Agent initialized. Requesting first task.
 
-### Real-Time Corrections with TaskSync V3
+# Task 1
+Enter your task (or 'none' if no new tasks): Setup React project with TypeScript and Tailwind CSS
+[INTERNAL: State - Active]
+Project setup completed with TypeScript and Tailwind CSS configuration.
+Task completed. Requesting next task from terminal.
 
-**File-Based Mode:**
-Edit your `tasks.txt` file to provide corrections:
+# Task 2  
+Enter your task (or 'none' if no new tasks): Create user registration form with validation
+[INTERNAL: State - Active]
+User registration form with comprehensive validation completed.
+Task completed. Requesting next task from terminal.
 
-```text
-# CORRECTION: Use TypeScript instead of JavaScript
-# CORRECTION: Add input validation for all forms
-# CORRECTION: Use bcrypt for password hashing
+# Task 3
+Enter your task (or 'none' if no new tasks): none
+[INTERNAL: State - Requesting]
+No new task received. Standing by...
+Enter your task (or 'none' if no new tasks): Implement password strength meter
+[INTERNAL: State - Active]
+Password strength meter with real-time feedback implemented.
+Task completed. Requesting next task from terminal.
+
+# Task 4 - Session Termination
+Enter your task (or 'none' if no new tasks): stop
+Session terminated by user request.
+TaskSync session completed. Tasks completed: 3. Final task: Password strength meter - completed.
 ```
-
-**UI Mode:**
-Use the TaskSyncUI web interface to:
-- Edit tasks in real-time with syntax highlighting
-- View instant change detection notifications
-- Monitor file updates across multiple projects
-- Access cross-platform terminal commands
-
-
-### The log.txt file detects the change:
-
-```text
-Check #7: Word count: 63 words (CHANGE DETECTED). Reading tasks.txt...
-Check #8: Word count: 63 words (no change). Applying TypeScript conversion and security improvements.
-```
-
-
-### TaskSyncUI Dashboard Features
-
-**Real-Time Monitoring:**
-- Live file change detection
-- WebSocket-powered status updates
-- Cross-platform terminal integration
-- Multi-project workspace support
-
-**Web Interface Benefits:**
-- No terminal command memorization needed
-- Visual task management
-- Real-time collaboration features
-- Enhanced debugging capabilities
-
-
-### Adding New Requirements During Development
-Append new tasks as the project evolves by editing `.github/tasks.txt`. The agent will detect the word count change, read the new instructions, and log the update. It will always finish the current task before starting new ones, unless an urgent override is present.
-
-```text
-# NEW TASK: Add OAuth2 login (Google, GitHub)
-# NEW TASK: Implement role-based access control
-# NEW TASK: Add unit tests with Jest
-```
-
-
-### The TaskSync V3 Agent Will Automatically:
-- ✅ Use cross-platform file monitoring (Windows/macOS/Linux)
-- ✅ Support both file-based and web UI modes
-- ✅ Provide enhanced session persistence
-- ✅ Integrate with TaskSyncUI for visual monitoring
-- ✅ Maintain backward compatibility with V1/V2 protocols
-- ✅ Log status updates with improved formatting
-- ✅ **Continue indefinitely** until manual termination
-- ✅ Support WebSocket real-time updates (UI mode)
-- ✅ Enable collaborative development workflows
 
 ---
 
-## 🔄 Example 2: API Development with TaskSyncUI
+## 🔄 Example 2: API Development 
 
-### Project Setup (Choose Your Mode)
+### Direct Terminal-Based Development
 
-**File-Based Mode:**
-Edit your `tasks.txt` file:
+**Agent Initialization:**
+```powershell
+TaskSync Terminal Agent initialized. Requesting first task.
+Enter your task: Build a comprehensive RESTful API for e-commerce platform
+[INTERNAL: Current Task - Build comprehensive RESTful API for e-commerce platform]
 
-```text
-# Project: E-commerce API V3
-Build a RESTful API with:
+Received task: Build a comprehensive RESTful API for e-commerce platform. Beginning execution...
+
+Project requirements identified:
 - Product catalog management
-- Shopping cart functionality
-- Order processing
+- Shopping cart functionality  
+- Order processing system
 - Payment integration (Stripe)
-- Admin dashboard
-
-Requirements:
+- Admin dashboard API
 - OpenAPI/Swagger documentation
-- Input validation and sanitization
-- JWT authentication
-- Rate limiting
+- JWT authentication system
+- Rate limiting middleware
 - Comprehensive error handling
 - Unit and integration tests
+
+Starting with Express.js project setup...
 ```
 
-**TaskSyncUI Mode:**
-1. Launch TaskSync Monitor: `python TaskSyncUI/start.py`
-2. Open browser to `http://localhost:8000`
-3. Create/edit tasks through the web interface
-4. Monitor real-time progress via WebSocket dashboard
+### Iterative Development with Task Continuation Priority
 
+**Current Task Completion:**
+```powershell
+E-commerce API foundation completed successfully:
+✅ Express.js server configured
+✅ MongoDB connection established
+✅ JWT authentication middleware implemented
+✅ Basic CRUD operations for products
+✅ Input validation configured
+✅ Error handling middleware active
 
-### Corresponding log.txt monitoring (V3 Enhanced):
+Task completed. Requesting next task from terminal.
+Enter your task (or 'none' if no new tasks): Add shopping cart functionality with Redis session storage
+[INTERNAL: Current Task - Add shopping cart functionality with Redis session storage]
 
-```text
-=== TASKSYNC V3 MONITORING LOG ===
-Session: #1
-Platform: Cross-Platform
-Baseline word count: 82
-
---- MONITORING STATUS ---
-Check #1: Word count: 82 words (baseline). API project initialization started.
-Check #2: Word count: 82 words (no change). Express.js setup complete.
-Check #3: Word count: 82 words (no change). JWT authentication middleware complete.
+Received task: Add shopping cart functionality with Redis session storage. Beginning execution...
 ```
 
-### TaskSyncUI Real-Time Dashboard
-- **Live Progress Tracking**: Visual progress bars and status indicators
-- **WebSocket Updates**: Instant notifications of file changes
-- **Cross-Platform Commands**: Integrated terminal for any OS
-- **Multi-Project Support**: Switch between different TaskSync projects
+### TaskSync v4 vs Legacy Versions
 
-### Iterative Development with Continuous Operation
+**TaskSync v4 (Terminal-Based):**
+- Direct PowerShell `$task = Read-Host` communication
+- Real-time task processing without file monitoring
+- No file dependencies or I/O overhead
+- Immediate task execution upon input
+- Cross-platform PowerShell compatibility
 
-Update `tasks.txt` for new phases:
+**TaskSync v3 (File-Based - Legacy Support):**
+- File monitoring with word count checks
+- `tasks.md` and `log.md` dual file system
+- WebUI integration with real-time updates
+- Cross-platform file monitoring
+- Legacy compatibility maintained
 
-```text
-# PHASE 1 COMPLETE - Moving to Phase 2
-# NEW TASK: Add inventory management
-# NEW TASK: Implement search and filtering
-# PRIORITY: Fix the authentication middleware bug
-```
+### Key Benefits of Terminal Agent Protocol
 
-
-### Log continues tracking automatically:
-
-```text
-Check #28: Word count: 102 words (no change). Inventory management API endpoints 60% complete.
-Check #29: Word count: 102 words (no change). Authentication bug fix applied.
-Check #30: Word count: 102 words (no change). Search functionality implementation started.
-```
+✅ **Immediate Response**: No file monitoring delays
+✅ **Zero File Dependencies**: Pure terminal communication
+✅ **Real-time Processing**: Instant task execution
+✅ **Enhanced Reliability**: Eliminates file I/O issues
+✅ **Direct Communication**: Agent-to-user terminal interface
+✅ **Cross-Platform**: PowerShell on Windows, macOS, Linux
+✅ **Session Persistence**: Continuous operation until manual termination
 
 ---
 
-## 📱 Example 3: Mobile App Development
+## 📝 TaskSync v4 Terminal Communication Best Practices
 
-```text
-# Project: Task Management Mobile App
-Create a cross-platform mobile application:
+### ✅ Effective Terminal Task Input
 
-Core Features:
-- Task creation and management
-- Project organization
-- Team collaboration
-- File attachments
-- Offline functionality
-- Push notifications
+```powershell
+# Clear, actionable task with specific requirements
+Enter your task: Create user registration API with email validation, password encryption, JWT tokens, and error handling using Node.js and MongoDB
 
-Tech Stack: React Native, Firebase
-Design: Material Design 3
-Platform: iOS and Android
+# Specific technical requirements included
+Enter your task: Build React dashboard component with charts using Chart.js, responsive design with Tailwind CSS, and TypeScript interfaces
 
-Sprint 1 Focus:
-- Basic CRUD operations
-- User authentication
-- Local storage
+# Multi-phase project with clear scope
+Enter your task: Develop e-commerce shopping cart with Redis session storage, Stripe payment integration, and comprehensive error handling
 ```
 
----
+### ❌ Avoid These Terminal Inputs
 
-## 🎯 Example 4: Bug Fixing Session
+```powershell
+# Too vague - lacks context
+Enter your task: Make the app better
 
-```text
-# BUG REPORT: User login not working
-Steps to reproduce:
-1. Enter valid email/password
-2. Click login button
-3. Page refreshes but user not logged in
+# Missing technical requirements  
+Enter your task: Fix the bug
 
-Debug checklist:
-- Check JWT token generation
-- Verify database connection
-- Test password hashing
-- Review session management
-- Check browser network tab
-- Test with different browsers
-
-PRIORITY: High - blocking production release
+# No implementation details
+Enter your task: Add authentication
 ```
 
----
+### 🎯 Terminal Agent Pro Tips
 
-## 💡 Example 5: Code Refactoring Project
+1. **Be Specific**: Include tech stack, requirements, and constraints in task input
+2. **Single Task Focus**: Provide one clear task per input for optimal agent focus
+3. **Use Urgent Overrides**: Prefix with "stop current task" for interrupting current work
+4. **Provide Context**: Explain the why, not just the what in your task description
+5. **Clear Termination**: Use "stop", "end", "terminate", or "quit" to end sessions
+6. **Task Sequencing**: Let agent complete current task before providing complex new requirements
 
-```text
-# REFACTORING: Legacy codebase modernization
-Current issues:
-- Mixed JavaScript/TypeScript files
-- No type safety
-- Inconsistent coding styles
-- Missing error handling
-- No automated tests
+### 🆘 Troubleshooting TaskSync v4 Terminal Agent
 
-Refactoring goals:
-1. Convert all .js files to TypeScript
-2. Add comprehensive type definitions
-3. Implement ESLint + Prettier
-4. Add unit tests (target 80% coverage)
-5. Update documentation
-6. Remove deprecated dependencies
-
-Timeline: 2 weeks
-Priority: Medium (technical debt)
-```
-
----
-
-## 🔍 Understanding AI Internal States and Dual File System
-
-
-Your AI assistant reports its internal state with each response and maintains separate log file tracking. Example:
-
-```text
-[INTERNAL: State - Active]
-[INTERNAL: Next check scheduled in 180s (180000ms)]
-```
-
-
-### State Meanings (per Protocol)
-
-- **Active**: AI is working on tasks and monitoring for updates every 180 seconds (no Start-Sleep)
-- **Monitoring**: AI completed current tasks, enters monitoring mode, and checks every 30 seconds with `Start-Sleep -Seconds 30` before each check. Never ends session automatically.
-
-### Dual File System Format
-
-
-**tasks.txt** (clean, user-editable):
-```text
-# Current Priority
-Fix the authentication bug in login.tsx
-Add TypeScript types for user profile
-
-# New Feature Request  
-Create a dashboard component with charts
-```
-
-**log.txt** (agent-managed monitoring):
-```text
-=== TASKSYNC MONITORING LOG ===
-Session: #1
-Baseline word count: 27
-
---- MONITORING STATUS ---
-Check #1: Word count: 27 words (baseline). Initial task received.
-Check #2: Word count: 27 words (no change). Task in progress.
-Check #3: Word count: 35 words (CHANGE DETECTED). Reading tasks.txt...
-Check #4: Word count: 35 words (no change). Implementing changes.
-```
-
-
-### Status Log Examples (per Updated Protocol)
-
-```text
-=== TASKSYNC MONITORING LOG ===
-Session: #1
-Baseline word count: 7
-
---- MONITORING STATUS ---
-Check #1: Word count: 7 words (baseline). No new instructions found.
-Check #2: Word count: 7 words (no change). No new instructions found.
-Check #3: Word count: 12 words (CHANGE DETECTED). NEW INSTRUCTIONS FOUND!
-Check #15: Word count: 14 words (no change). Authentication system 90% complete.
-Check #42: Word count: 18 words (no change). All tasks completed, monitoring for new instructions.
-```
-
-
-### Key Features (per Updated Protocol)
-
-- **Count-Based Monitoring**: Each check increments from #1 indefinitely
-- **Word Count Verification**: Reports exact word count of tasks.txt content (not just line count)
-- **Separate File System**: tasks.txt stays clean, log.txt contains all monitoring history
-- **Real-Time Updates**: Status written to log.txt with each check
-- **Infinite Operation**: AI continues monitoring until manually terminated (never ends session automatically)
-- **No Automatic Termination**: You must explicitly say "stop", "end", "terminate", or "quit" to end the session
-- **Mandatory Sleep in State 2**: Always executes `Start-Sleep -Seconds 30` before each monitoring check in State 2
-
----
-
-## 📝 tasks.txt Best Practices
-
-### ✅ Good Examples
-
-```text
-# Clear, actionable tasks
-Create user registration form with:
-- Email validation
-- Password strength requirements
-- Confirm password field
-- Terms of service checkbox
-
-# Specific technical requirements
-Use React Hook Form for validation
-Style with Tailwind CSS
-Add loading states and error messages
-```
-
-### ❌ Avoid These
-
-```text
-# Too vague
-Make the app better
-
-# No context
-Fix the bug
-
-# Missing requirements
-Add authentication
-```
-
-### 🎯 Pro Tips
-
-1. **Be Specific**: Include tech stack, requirements, and constraints
-2. **Use Comments**: Organize tasks with `#` comments for clarity
-3. **Set Priorities**: Use keywords like `URGENT`, `HIGH PRIORITY`, `LATER`
-4. **Include Context**: Explain the why, not just the what
-5. **Break Down Large Tasks**: Split complex features into smaller steps
-
----
-
-## 📋 Ready-to-Use Templates
-
-### Frontend Project Template
-```text
-# Project: [Project Name]
-# Framework: [React/Vue/Angular/etc.]
-# Styling: [Tailwind/Styled Components/CSS Modules]
-
-Phase 1 - Setup:
-- Initialize project with proper folder structure
-- Set up linting (ESLint, Prettier)
-- Configure build tools and bundler
-- Add basic routing
-
-Phase 2 - Core Features:
-- Implement main layout and navigation
-- Create reusable UI components
-- Add state management
-- Implement data fetching
-
-Phase 3 - Polish:
-- Add loading states and error handling
-- Implement responsive design
-- Add animations and transitions
-- Optimize performance
-```
-
-### Backend API Template
-```text
-# Project: [API Name]
-# Framework: [Express/FastAPI/Django/etc.]
-# Database: [MongoDB/PostgreSQL/MySQL]
-
-Foundation:
-- Set up project structure
-- Configure environment variables
-- Add authentication middleware
-- Set up database connection
-- Add input validation
-
-Core Features:
-- Implement CRUD operations
-- Add API documentation (Swagger/OpenAPI)
-- Set up error handling
-- Add logging
-- Implement rate limiting
-
-Security & Testing:
-- Add security headers
-- Implement CORS properly
-- Write unit tests
-- Add integration tests
-- Set up CI/CD pipeline
-```
-
----
-
-## 🆘 Troubleshooting Common Issues
-
-### AI Not Responding to tasks.txt Changes
+### Agent Not Responding to Terminal Input
 
 **Possible Causes:**
-
-- File permissions issue
-- AI monitoring disrupted 
-- File encoding problems
-- Tasks.txt not in correct location
+- Terminal session interrupted
+- PowerShell execution policy restrictions  
+- Agent protocol not properly initialized
 
 **Solutions:**
+```powershell
+# Verify agent is active by checking internal state reporting
+[INTERNAL: State - Active] or [INTERNAL: State - Requesting]
 
-```text
-# Add this to your tasks.txt to test monitoring:
-# TEST: If you can read this, monitoring is working
-# Current time: [your current time]
-
-# Check STATUS LOG for monitoring activity:
---- STATUS LOG ---
-Check #[X]: - Read tasks.txt containing [Y] lines. [Status message]
+# If no internal state visible, reinitialize:
+Strictly adhere to TaskSync Protocol #tasksync.md
 ```
 
-### AI Misunderstanding Instructions
+### Agent Not Following PRIMARY DIRECTIVES
 
-**Improve Your Instructions:**
+**Check for Protocol Compliance:**
+- Agent should never terminate automatically
+- Must use `$task = Read-Host` for task requests
+- Should report internal states consistently
+- Must process urgent overrides immediately
 
-```text
-# Instead of: "Add validation"
-# Use this: "Add form validation with these rules:
-- Email must be valid format
-- Password minimum 8 characters
-- Phone number must be 10 digits
-- All fields required before submission"
+**Reinforce Protocol:**
+```powershell
+# Add to task input:
+Follow all PRIMARY DIRECTIVES in TaskSync protocol without exception
+Continue requesting tasks indefinitely until manual termination
 ```
 
-### Wanting to End Session
+### Session Management Issues
 
-**Remember - No Automatic Termination:**
+**Ensure Proper Operation:**
+- Agent should increment task numbers (#1, #2, #3...)
+- Must continue requesting tasks after completion
+- Should never use concluding phrases like "Let me know if you need anything else"
+- Must execute PowerShell Read-Host commands consistently
 
-- AI operates indefinitely until manually stopped
-- Check STATUS LOG for ongoing monitoring activity
-- Monitor incrementing check numbers to verify operation
-
-
-**To Stop the AI:**
-
-```text
-# Add to tasks.txt or say directly:
-# TERMINATE: Stop monitoring and end session
-# Or say: "stop", "end", "terminate", or "quit"
+**Quick Protocol Reset:**
+```powershell
+Enter your task: Restart TaskSync protocol compliance, report current status, and continue requesting tasks
 ```
 
-### Monitoring Issues
-
-**Check For:**
-
-- STATUS LOG entries not incrementing
-- File write permission errors
-- Missing check count progression
-- AI not reading complete file content
-
-**Quick Fix:**
-
-```text
-# Add to tasks.txt to restart monitoring:
-# RESTART: Continue working on current tasks
-# STATUS: Please report current progress
-# VERIFY: Read this entire file and log status
-
---- STATUS LOG ---
-Check #1: - Read tasks.txt containing [X] lines. Monitoring restarted.
-```
-
-
-Remember: TaskSync agents operate with infinite monitoring - they never automatically terminate and continue working until you explicitly stop them!
-Remember: TaskSync works best when you provide clear, detailed instructions and maintain regular communication through your tasks.txt file!
-
----
-
-## 🆕 Protocol v2.0: Infinite Monitoring and Logging Example
-
-Below is a new example showing the updated protocol in action:
-
-```text
-[INTERNAL: State - Monitoring]
-[INTERNAL: Next check scheduled in 30s (30000ms)]
-
-=== TASKSYNC MONITORING LOG ===
-Session: #2
-Baseline word count: 35
-
---- MONITORING STATUS ---
-Check #1: Word count: 35 words (baseline). New session started - no conversation history found.
-Check #2: Word count: 35 words (no change). Task in progress.
-Check #3: Word count: 47 words (CHANGE DETECTED). Reading tasks.txt...
-Check #4: Word count: 47 words (no change). Task complete - monitoring mode.
-Check #5: Word count: 47 words (no change). No file read needed.
-Check #6: Word count: 63 words (CHANGE DETECTED). Reading tasks.txt...
-```
+Remember: TaskSync v4 agents operate with direct terminal communication - they actively request tasks and never automatically terminate until you explicitly stop them!

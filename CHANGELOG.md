@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Version 4.0 (08-12-25)
+- Terminal-based autonomous agent protocol: AI becomes persistent terminal application using PowerShell Read-Host commands
+- PRIMARY DIRECTIVE system: Eight critical behavioral rules ensuring absolute protocol compliance
+- Zero file dependencies: Eliminates file monitoring overhead for direct terminal communication
+- Enhanced session management: Improved task continuation priority and manual termination controls
+- Cross-platform PowerShell compatibility and full backward support for TaskSync v3
+
 ## Version 3.0 (07-23-25)
 - TaskSync Monitor UI: Web-based interface with real-time monitoring
 - Improved TaskSync protocol prompt for better agent persistence and reliability and better file reference handling.
