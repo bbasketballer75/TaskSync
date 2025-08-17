@@ -27,12 +27,26 @@ https://github.com/user-attachments/assets/659fcd62-edef-4b94-bcd3-a99a6ae29c4e
 
 **Note:** Task must be entered as a single line. You can paste your task into the search bar, or into a new empty file and use "Join Lines" from the Command Palette to combine multiple lines.
 
+## Best Practices and VS Code Copilot Settings
+
+Because agent mode depends heavily on tool calling, it's recommended that you turn on "Auto Approve" in the settings. Note that this will allow the agent to execute commands in your terminal without asking for permission. I also recommend bumping "Max Requests" to 100 to keep the agent working on long running tasks without asking you if you want it to continue.
+
+You can do that through the settings UI or via your user settings json file:
+
+```json
+"chat.tools.autoApprove": true,
+"chat.agent.maxRequests": 100
+```
+
+It's best to keep the TaskSync session for 1-2 hours maximum since the longer the conversation, the more hallucinations may occur. Start it in a new chat session when needed for optimal performance.
+
+
 ### Alternative Option
 
 <summary><strong>TaskSync VS Code Extension</strong></summary>
 
 This version is using Version 3 that uses tasks.md for task input and log.md for updates.
-For VS Code users who prefer an integrated extension experience:
+For VS Code users who prefer an integrated sidebar extension experience:
 
 [![TaskSync Extension](https://img.shields.io/badge/VS_Code-Install_TaskSync-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=4regab.tasksync-chat)
 
