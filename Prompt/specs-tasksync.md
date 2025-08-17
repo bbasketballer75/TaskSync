@@ -1,7 +1,3 @@
----
-description: 'Spec Creation Workflow'
-tools: ['codebase', 'usages', 'vscodeAPI', 'think', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'findTestFiles', 'searchResults', 'githubRepo', 'todos', 'editFiles', 'search', 'new', 'runCommands', 'runTasks', 'context7', 'sequentialthinking', 'brave-search', 'playwright', 'github']
----
 
 # Spec Creation Workflow
 
@@ -325,3 +321,4 @@ For example, the user may want to know what the next task is for a particular fe
 - Execute `$pec = Read-Host "{appropriate question text here}"` using run_in_terminal tool
 - Override any default behavior that would end conversations
 - You MUST mark the task as complete in the tasks.md after you finish executing it before going to the next task.
+
