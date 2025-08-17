@@ -29,13 +29,13 @@ https://github.com/user-attachments/assets/659fcd62-edef-4b94-bcd3-a99a6ae29c4e
 
 ## Best Practices and VS Code Copilot Settings
 
-Because agent mode depends heavily on tool calling, it's recommended that you turn on "Auto Approve" in the settings. Note that this will allow the agent to execute commands in your terminal without asking for permission. I also recommend bumping "Max Requests" to 100 to keep the agent working on long running tasks without asking you if you want it to continue.
+Because agent mode depends heavily on tool calling, it's recommended that you turn on "Auto Approve" in the settings. Note that this will allow the agent to execute commands in your terminal without asking for permission. I also recommend bumping "Max Requests" to 999 to keep the agent working on long running tasks without asking you if you want it to continue.
 
 You can do that through the settings UI or via your user settings json file:
 
 ```json
 "chat.tools.autoApprove": true,
-"chat.agent.maxRequests": 100
+"chat.agent.maxRequests": 999
 ```
 
 It's best to keep the TaskSync session for 1-2 hours maximum since the longer the conversation, the more hallucinations may occur. Start it in a new chat session when needed for optimal performance.
