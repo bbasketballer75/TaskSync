@@ -20,7 +20,9 @@ https://github.com/user-attachments/assets/659fcd62-edef-4b94-bcd3-a99a6ae29c4e
 
 ## Getting Started
 1. **Get the TaskSync Prompt**: Copy or download the prompt from [here](https://github.com/4regab/TaskSync/blob/main/Prompt/tasksync.md).
-    **Optional: Specs Workflow** *(Alternative structured approach)*: For users who prefer Kiro-style spec-driven development, you can use the [Specs-Tasksync](https://github.com/4regab/TaskSync/blob/main/Prompt/specs-tasksync.md) instead. This approach transforms ideas into structured requirements, design documents, and task lists before implementation. Simply provide both the main TaskSync protocol and the specs workflow file as context, then specify prompt you want to use.
+
+**Optional: Specs Workflow** *(Alternative structured approach)*: For users who prefer Kiro-style spec-driven development, you can use the [Specs-Tasksync](https://github.com/4regab/TaskSync/blob/main/Prompt/specs-tasksync.md) instead. This approach transforms ideas into structured requirements, design documents, and task lists before implementation. Simply provide both the main TaskSync protocol and the specs workflow file as context, then specify prompt you want to use.
+
 3. **Initialize Agent**: Provide the TaskSync v4 protocol file (`tasksync.md`) or (`specs-tasksync.md`) as context to your AI IDE or agent and type in chat: `Strictly follow TaskSync Protocol #tasksync.md or specs-tasksync.md` to activate.
 4. **Agent Activation**: The agent immediately becomes a terminal-based autonomous agent and announces initialization.
 5. **Task Input**: Agent executes `$task = Read-Host "Enter your task"` and waits for your input.
