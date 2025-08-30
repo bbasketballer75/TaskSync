@@ -7,7 +7,7 @@ This simple prompt instructions helps you work more efficiently, reduce premium 
 
 ## What This Does
 
-TaskSync is a **terminal-based task agent** with direct terminal communication. Your coding agent will actively requests tasks or feedback through terminal command `$task = Read-Host "Enter your task"` `read -p "Enter your task: " task` for macOS/Linux, executes tasks autonomously, and operates forever until you stop it.
+TaskSync is a **terminal-based task agent** with direct terminal communication. Your coding agent will actively requests tasks or feedback through terminal command `$task = Read-Host "Enter your task"` or `read -p "Enter your task: " task` for macOS/Linux, executes tasks autonomously, and operates forever until you stop it.
 
 https://github.com/user-attachments/assets/659fcd62-edef-4b94-bcd3-a99a6ae29c4e
 
