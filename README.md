@@ -37,7 +37,6 @@ Because agent mode depends heavily on tool calling, it's recommended that you tu
 You can do that through the settings UI or via your user settings json file:
 
 ```json
-"chat.tools.autoApprove": true,
 "chat.agent.maxRequests": 999
 ```
 
